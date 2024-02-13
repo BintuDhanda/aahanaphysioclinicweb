@@ -1,0 +1,65 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = aahanaphysioclinic
+build_property.RootNamespace = aahanaphysioclinic
+build_property.ProjectDir = C:\Users\BintuDhanda\source\repos\aahanaphysioclinicweb\aahanaphysioclinic\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\BintuDhanda\source\repos\aahanaphysioclinicweb\aahanaphysioclinic
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/AboutDoctor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXREb2N0b3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/BookAnAppointment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va0FuQXBwb2ludG1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/OurServices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3VyU2VydmljZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/VirtualTour/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlydHVhbFRvdXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hagn3pw00c
