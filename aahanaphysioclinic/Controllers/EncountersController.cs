@@ -164,5 +164,10 @@ namespace aahanaphysioclinic.Controllers
         {
           return (_context.Encounters?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        public async Task<IActionResult> PatientDetails([FromQuery] string? mobileNo)
+        {
+            return Ok(await _context.Patients.FirstOrDefaultAsync(m => m.MobileNumber == mobileNo));
+        }
     }
 }
