@@ -7,103 +7,93 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using aahanaphysioclinic.Data;
 using aahanaphysioclinic.Model;
-using Microsoft.AspNetCore.Identity;
 
 namespace aahanaphysioclinic.Controllers
 {
-    public class PatientsController : Controller
+    public class EncountersController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-        public PatientsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public EncountersController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
-        // GET: Patients
+        // GET: Encounters
         public async Task<IActionResult> Index()
         {
-              return _context.Patients != null ? 
-                          View(await _context.Patients.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Patients'  is null.");
+            var applicationDbContext = _context.Encounters.Include(e => e.ApplicationUser);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Patients/Details/5
+        // GET: Encounters/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Patients == null)
+            if (id == null || _context.Encounters == null)
             {
                 return NotFound();
             }
 
-            var patient = await _context.Patients
+            var encounter = await _context.Encounters
+                .Include(e => e.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (patient == null)
+            if (encounter == null)
             {
                 return NotFound();
             }
 
-            return View(patient);
+            return View(encounter);
         }
 
-        // GET: Patients/Create
+        // GET: Encounters/Create
         public IActionResult Create()
         {
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
-        // POST: Patients/Create
+        // POST: Encounters/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromForm] Patient patient)
+        public async Task<IActionResult> Create([Bind("Id,EncounterName,ApplicationUserId")] Encounter encounter)
         {
             if (ModelState.IsValid)
             {
-                patient.CreatedOn = System.DateTime.UtcNow;
-
-                var user = await _userManager.GetUserAsync(User);
-                if (user == null)
-                {
-                    // If user is not authenticated, handle accordingly (e.g., redirect to login page)
-                    return RedirectToAction("Index", "Accounts"); // Adjust to your application's login action
-                }
-
-                patient.ApplicationUserId = user.Id;
-                _context.Add(patient);
+                _context.Add(encounter);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(patient);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", encounter.ApplicationUserId);
+            return View(encounter);
         }
 
-        // GET: Patients/Edit/5
+        // GET: Encounters/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Patients == null)
+            if (id == null || _context.Encounters == null)
             {
                 return NotFound();
             }
 
-            var patient = await _context.Patients.FindAsync(id);
-            if (patient == null)
+            var encounter = await _context.Encounters.FindAsync(id);
+            if (encounter == null)
             {
                 return NotFound();
             }
-            return View(patient);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", encounter.ApplicationUserId);
+            return View(encounter);
         }
 
-        // POST: Patients/Edit/5
+        // POST: Encounters/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,PatientName,MobileNumber,CreatedOn")] Patient patient)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EncounterName,ApplicationUserId")] Encounter encounter)
         {
-            if (id != patient.Id)
+            if (id != encounter.Id)
             {
                 return NotFound();
             }
@@ -112,12 +102,12 @@ namespace aahanaphysioclinic.Controllers
             {
                 try
                 {
-                    _context.Update(patient);
+                    _context.Update(encounter);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PatientExists(patient.Id))
+                    if (!EncounterExists(encounter.Id))
                     {
                         return NotFound();
                     }
@@ -128,49 +118,51 @@ namespace aahanaphysioclinic.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(patient);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", encounter.ApplicationUserId);
+            return View(encounter);
         }
 
-        // GET: Patients/Delete/5
+        // GET: Encounters/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Patients == null)
+            if (id == null || _context.Encounters == null)
             {
                 return NotFound();
             }
 
-            var patient = await _context.Patients
+            var encounter = await _context.Encounters
+                .Include(e => e.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (patient == null)
+            if (encounter == null)
             {
                 return NotFound();
             }
 
-            return View(patient);
+            return View(encounter);
         }
 
-        // POST: Patients/Delete/5
+        // POST: Encounters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Patients == null)
+            if (_context.Encounters == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Patients'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Encounter'  is null.");
             }
-            var patient = await _context.Patients.FindAsync(id);
-            if (patient != null)
+            var encounter = await _context.Encounters.FindAsync(id);
+            if (encounter != null)
             {
-                _context.Patients.Remove(patient);
+                _context.Encounters.Remove(encounter);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PatientExists(int id)
+        private bool EncounterExists(int id)
         {
-          return (_context.Patients?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Encounters?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

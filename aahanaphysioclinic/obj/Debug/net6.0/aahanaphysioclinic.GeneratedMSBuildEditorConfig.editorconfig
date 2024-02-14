@@ -60,6 +60,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFBhdGllbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/Encounters/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5jb3VudGVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/Encounters/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5jb3VudGVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/Encounters/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5jb3VudGVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/Encounters/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5jb3VudGVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/Encounters/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5jb3VudGVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/BintuDhanda/source/repos/aahanaphysioclinicweb/aahanaphysioclinic/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
