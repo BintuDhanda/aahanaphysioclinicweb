@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\assets\\Cervical Spondylosis.jpg"
     },
     {
+      "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\DR-1024x1024.jpg",
+      "PackagePath": "staticwebassets\\assets\\DR-1024x1024.jpg"
+    },
+    {
       "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Frozen Shoulder.png",
       "PackagePath": "staticwebassets\\assets\\Frozen Shoulder.png"
     },
@@ -123,6 +127,34 @@
     {
       "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\svg\\arrow.svg",
       "PackagePath": "staticwebassets\\assets\\svg\\arrow.svg"
+    },
+    {
+      "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt1.jpg",
+      "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt2.jpg",
+      "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt3.jpg",
+      "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt4.jpg",
+      "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt5.jpg",
+      "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt6.jpg",
+      "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt7.jpg",
+      "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt7.jpg"
     },
     {
       "Id": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\css\\site.css",

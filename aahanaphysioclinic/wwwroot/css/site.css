@@ -81,4 +81,61 @@ footer div {
        color: darkblue;
     }
 
+.whatsapp-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    text-decoration:none;
+}
+
+    .whatsapp-fixed:hover {
+        background-color: #128c7e;
+    }
+
+
+.service {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.service-heading {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.testimonial-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.testimonial-item {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.testimonial-indicators {
+    bottom: -30px;
+}
+
+.carousel-indicators li {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: transparent;
+}
+
+.carousel-indicators .active {
+    background-color: #000;
+}
+
 

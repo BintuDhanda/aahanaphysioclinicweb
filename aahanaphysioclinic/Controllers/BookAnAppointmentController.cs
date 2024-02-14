@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using aahanaphysioclinic.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace aahanaphysioclinic.Controllers
 {
@@ -8,5 +9,12 @@ namespace aahanaphysioclinic.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Index([FromForm] BookAnAppointment model)
+        {
+            return View();
+        }
+
     }
 }

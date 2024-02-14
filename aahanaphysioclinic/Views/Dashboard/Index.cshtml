@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+    <style>
+        .services {
+            padding: 20px 0;
+        }
+
+        .service {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+            .service i {
+                font-size: 30px; /* Adjust icon size */
+                margin-bottom: 15px;
+            }
+
+            .service h3 {
+                margin-bottom: 10px;
+            }
+
+            .service a {
+                display: block;
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .service a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+
+
+<section class="services">
+    <div class="container">
+        <h2 class="textGradient text-center">Our Services</h2>
+        <div class="row">
+            <!-- Service 1: Patient -->
+            <div class="col-lg-3">
+                <div class="service">
+                    <i class="fas fa-user"></i> <!-- Font Awesome icon for Patient -->
+                    <h3>Patient</h3>
+                    <a href="#">Go to Patient</a>
+                </div>
+            </div>
+
+            <!-- Service 2: Encounters -->
+            <div class="col-lg-3">
+                <div class="service">
+                    <i class="fas fa-clipboard"></i> <!-- Font Awesome icon for Encounters -->
+                    <h3>Encounters</h3>
+                    <a href="#">Go to Encounters</a>
+                </div>
+            </div>
+
+            <!-- Service 3: Appointments -->
+            <div class="col-lg-3">
+                <div class="service">
+                    <i class="fas fa-calendar-alt"></i> <!-- Font Awesome icon for Appointments -->
+                    <h3>Appointments</h3>
+                    <a href="#">Go to Appointments</a>
+                </div>
+            </div>
+
+            <!-- Service 4: LabReports -->
+            <div class="col-lg-3">
+                <div class="service">
+                    <i class="fas fa-vial"></i> <!-- Font Awesome icon for LabReports -->
+                    <h3>Lab Reports</h3>
+                    <a href="#">Go to Lab Reports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
