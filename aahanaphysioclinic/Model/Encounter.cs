@@ -7,7 +7,9 @@ namespace aahanaphysioclinic.Model
         [Key]
         public int Id { get; set; }
         public string? EncounterName { get; set; }
-        
+        public decimal Fees { get; set; }
+        public string? ExpectedDiagnosis { get; set; }
+
         // Navigation
         public ApplicationUser? ApplicationUser { get; set; }
         public string? ApplicationUserId { get; set; }

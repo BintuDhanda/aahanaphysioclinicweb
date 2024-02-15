@@ -48,7 +48,6 @@ namespace aahanaphysioclinic.Controllers
         // GET: Encounters/Create
         public IActionResult Create()
         {
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
