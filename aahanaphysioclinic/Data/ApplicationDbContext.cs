@@ -42,41 +42,11 @@ namespace aahanaphysioclinic.Data
                 new IdentityUserRole<string> { RoleId = "b241f5b3-1bdf-4f41-9cef-f7c78664bc80", UserId = "61cc032a-985c-44c9-8aeb-8d2dc5d9626a" }
             );
 
-
-            // Patient Model
-            modelBuilder.Entity<Patient>()
-           .HasIndex(p => p.MobileNumber)
-           .IsUnique();
-
-            modelBuilder.Entity<Patient>()
-           .Property(p => p.ApplicationUserId)
-           .HasColumnName("ApplicationUserId");
-
-
-            // Encounter Model
-            modelBuilder.Entity<Encounter>()
-                .HasOne(e => e.Patient)                     
-                .WithMany()                                  
-                .HasForeignKey(e => e.PatientId)            
-                .IsRequired();                              
-
-            modelBuilder.Entity<Encounter>()
-                .HasOne(e => e.ApplicationUser)             
-                .WithMany()                                
-                .HasForeignKey(e => e.ApplicationUserId)  
-                .IsRequired();
-
-            modelBuilder.Entity<Encounter>()
-                .Property(e => e.PatientId)
-                .HasColumnName("PatientId");
-
-            modelBuilder.Entity<Encounter>()
-                .Property(e => e.ApplicationUserId)
-                .HasColumnName("ApplicationUserId");
+            modelBuilder.Entity<Patient>().HasKey(e => new { e.PatientId });
 
         }
 
-        public DbSet<Patient> Patients { get; set; }
-        public DbSet<Encounter> Encounters { get; set; }
+        public DbSet<Patient> Patient { get; set; }
+        public DbSet<Encounter> Encounter { get; set; }
     }
 }

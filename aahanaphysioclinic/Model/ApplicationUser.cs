@@ -4,6 +4,6 @@ namespace aahanaphysioclinic.Model
 {
     public class ApplicationUser : IdentityUser
     {
-        
+       
     }
 }

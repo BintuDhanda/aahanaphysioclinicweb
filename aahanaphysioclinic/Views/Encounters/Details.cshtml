@@ -12,20 +12,14 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EncounterName)
+            @Html.DisplayNameFor(model => model.EncounterId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EncounterName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ApplicationUser)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ApplicationUser.Id)
+            @Html.DisplayFor(model => model.EncounterId)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.EncounterId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

@@ -22,21 +22,51 @@ namespace aahanaphysioclinic.Controllers
         // GET: Encounters
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Encounters.Include(e => e.ApplicationUser);
-            return View(await applicationDbContext.ToListAsync());
+            //var applicationDbContext = _context.Encounters.Include(e => e.ApplicationUser);
+            //return View(await applicationDbContext.ToListAsync());
+            
+            List<Encounter> encounters = new List<Encounter>()
+            {
+                new Encounter
+                {
+                    EncounterId=1,
+                    ApplicationUserId="userid",
+                    Diagnosis="Diagnosis",
+                    CheifComplaint="Chief Complaint",
+                    Fees=200,
+                    From=DateTime.Now.Subtract(TimeSpan.FromMinutes(30)),
+                    To= DateTime.Now,
+                    EncounterDate=DateTime.Now.Date,
+                    PatientId=1,
+                    VAScale=10
+                },
+                new Encounter
+                {
+                    EncounterId=2,
+                    ApplicationUserId="userid",
+                    Diagnosis="Diagnosis",
+                    CheifComplaint="Chief Complaint",
+                    Fees=200,
+                    From=DateTime.Now.Subtract(TimeSpan.FromMinutes(30)),
+                    To = DateTime.Now,
+                    EncounterDate=DateTime.Now.Date,
+                    PatientId=2,
+                    VAScale=5
+                }
+            };
+            return View(encounters);
         }
 
         // GET: Encounters/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Encounters == null)
+            if (id == null || _context.Encounter == null)
             {
                 return NotFound();
             }
 
-            var encounter = await _context.Encounters
-                .Include(e => e.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var encounter = await _context.Encounter
+                .FirstOrDefaultAsync(m => m.EncounterId == id);
             if (encounter == null)
             {
                 return NotFound();
@@ -56,7 +86,7 @@ namespace aahanaphysioclinic.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,EncounterName,ApplicationUserId")] Encounter encounter)
+        public async Task<IActionResult> Create([FromForm] Encounter encounter)
         {
             if (ModelState.IsValid)
             {
@@ -71,12 +101,12 @@ namespace aahanaphysioclinic.Controllers
         // GET: Encounters/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Encounters == null)
+            if (id == null || _context.Encounter == null)
             {
                 return NotFound();
             }
 
-            var encounter = await _context.Encounters.FindAsync(id);
+            var encounter = await _context.Encounter.FindAsync(id);
             if (encounter == null)
             {
                 return NotFound();
@@ -92,7 +122,7 @@ namespace aahanaphysioclinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,EncounterName,ApplicationUserId")] Encounter encounter)
         {
-            if (id != encounter.Id)
+            if (id != encounter.EncounterId)
             {
                 return NotFound();
             }
@@ -106,7 +136,7 @@ namespace aahanaphysioclinic.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EncounterExists(encounter.Id))
+                    if (!EncounterExists(encounter.EncounterId))
                     {
                         return NotFound();
                     }
@@ -124,14 +154,13 @@ namespace aahanaphysioclinic.Controllers
         // GET: Encounters/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Encounters == null)
+            if (id == null || _context.Encounter == null)
             {
                 return NotFound();
             }
 
-            var encounter = await _context.Encounters
-                .Include(e => e.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var encounter = await _context.Encounter
+                .FirstOrDefaultAsync(m => m.EncounterId == id);
             if (encounter == null)
             {
                 return NotFound();
@@ -145,14 +174,14 @@ namespace aahanaphysioclinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Encounters == null)
+            if (_context.Encounter == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Encounter'  is null.");
             }
-            var encounter = await _context.Encounters.FindAsync(id);
+            var encounter = await _context.Encounter.FindAsync(id);
             if (encounter != null)
             {
-                _context.Encounters.Remove(encounter);
+                _context.Encounter.Remove(encounter);
             }
             
             await _context.SaveChangesAsync();
@@ -161,12 +190,28 @@ namespace aahanaphysioclinic.Controllers
 
         private bool EncounterExists(int id)
         {
-          return (_context.Encounters?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Encounter?.Any(e => e.EncounterId == id)).GetValueOrDefault();
         }
 
         public async Task<IActionResult> PatientDetails([FromQuery] string? mobileNo)
         {
-            return Ok(await _context.Patients.FirstOrDefaultAsync(m => m.MobileNumber == mobileNo));
+            try
+            {
+                var patient = await _context.Patient.FirstOrDefaultAsync(m=>m.MobileNumber==mobileNo);
+                if (patient != null)
+                {
+                    return Ok(patient);
+                }
+                else
+                {
+                    return StatusCode(204); 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500);
+            }
         }
     }
 }

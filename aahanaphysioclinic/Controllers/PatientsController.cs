@@ -25,21 +25,21 @@ namespace aahanaphysioclinic.Controllers
         // GET: Patients
         public async Task<IActionResult> Index()
         {
-              return _context.Patients != null ? 
-                          View(await _context.Patients.ToListAsync()) :
+              return _context.Patient != null ? 
+                          View(await _context.Patient.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Patients'  is null.");
         }
 
         // GET: Patients/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Patients == null)
+            if (id == null || _context.Patient == null)
             {
                 return NotFound();
             }
 
-            var patient = await _context.Patients
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var patient = await _context.Patient
+                .FirstOrDefaultAsync(m => m.PatientId == id);
             if (patient == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace aahanaphysioclinic.Controllers
         // GET: Patients/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Patients == null)
+            if (id == null || _context.Patient == null)
             {
                 return NotFound();
             }
 
-            var patient = await _context.Patients.FindAsync(id);
+            var patient = await _context.Patient.FindAsync(id);
             if (patient == null)
             {
                 return NotFound();
@@ -103,7 +103,7 @@ namespace aahanaphysioclinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,PatientName,MobileNumber,CreatedOn")] Patient patient)
         {
-            if (id != patient.Id)
+            if (id != patient.PatientId)
             {
                 return NotFound();
             }
@@ -117,7 +117,7 @@ namespace aahanaphysioclinic.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PatientExists(patient.Id))
+                    if (!PatientExists(patient.PatientId))
                     {
                         return NotFound();
                     }
@@ -134,13 +134,13 @@ namespace aahanaphysioclinic.Controllers
         // GET: Patients/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Patients == null)
+            if (id == null || _context.Patient == null)
             {
                 return NotFound();
             }
 
-            var patient = await _context.Patients
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var patient = await _context.Patient
+                .FirstOrDefaultAsync(m => m.PatientId == id);
             if (patient == null)
             {
                 return NotFound();
@@ -154,14 +154,14 @@ namespace aahanaphysioclinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Patients == null)
+            if (_context.Patient == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Patients'  is null.");
             }
-            var patient = await _context.Patients.FindAsync(id);
+            var patient = await _context.Patient.FindAsync(id);
             if (patient != null)
             {
-                _context.Patients.Remove(patient);
+                _context.Patient.Remove(patient);
             }
             
             await _context.SaveChangesAsync();
@@ -170,7 +170,7 @@ namespace aahanaphysioclinic.Controllers
 
         private bool PatientExists(int id)
         {
-          return (_context.Patients?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Patient?.Any(e => e.PatientId == id)).GetValueOrDefault();
         }
     }
 }

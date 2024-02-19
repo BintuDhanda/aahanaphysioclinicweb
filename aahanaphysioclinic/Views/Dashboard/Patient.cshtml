@@ -29,10 +29,10 @@
                 @foreach (var patient in Model)
                 {
                     <tr>
-                        <td><a href="@Url.Action("Edit", "Patient", new { id = patient.Id })">@patient.Id</a></td>
+                        <td><a href="@Url.Action("Edit", "Patient", new { id = patient.PatientId })">@patient.PatientId</a></td>
                         <td>@patient.PatientName</td>
                         <td>@patient.MobileNumber</td>
-                        <td>@patient.CreatedOn.ToString("MM/dd/yyyy")</td>
+                        <td>@patient.CreatedOn</td>
                         <td>
                             <!-- Action buttons (if any) for each patient -->
                         </td>
