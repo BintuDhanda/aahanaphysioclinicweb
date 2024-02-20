@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace aahanaphysioclinic.Model
@@ -13,8 +12,7 @@ namespace aahanaphysioclinic.Model
         public int VAScale { get; set; }
         public string? Diagnosis { get; set; }
         public string? Treatment { get; set; }
-        public DateTime? EncounterDate { get; set; }
-
+        
         // For Encouter Date Selection
         [NotMapped]
         public int EncounterDateTimeDay { get; set; }
@@ -23,9 +21,18 @@ namespace aahanaphysioclinic.Model
         [NotMapped]
         public int EncounterDateTimeYear { get; set; }
 
+        public DateTime? EncounterDate
+        {
+            get
+            {
+                return new DateTime(EncounterDateTimeYear, EncounterDateTimeMonth, EncounterDateTimeDay, 0, 0, 0, 0);
+            }
+        }
+
+
         // For Encounter From Time Selection
         [NotMapped]
-        public int FromHour { get; set; }
+        public int FromHour { get; set; } 
         [NotMapped]
         public int FromMinute { get; set; }
         [NotMapped]
@@ -33,45 +40,48 @@ namespace aahanaphysioclinic.Model
 
         // For Encounter To Time Selection
         [NotMapped]
-        public int? ToHour { get; set; }
+        public int ToHour { get; set; }
         [NotMapped]
-        public int? ToMinute { get; set; }
+        public int ToMinute { get; set; }
         [NotMapped]
-        public string? ToMeridiem { get; set; }
+        public string ToMeridiem { get; set; }
 
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        public DateTime From {
+            get
+            {
+                int hour = FromHour;
+                if (FromMeridiem == "PM" && hour < 12)
+                {
+                    hour += 12;
+                }
+                else if (FromMeridiem == "AM" && hour == 12)
+                {
+                    hour = 0;
+                }
+
+                return new DateTime(0, 0, 0, hour, FromMinute, 0);
+            }
+        }
+        public DateTime To {
+            get
+            {
+                int hour = ToHour;
+                if(ToMeridiem=="PM" && hour < 12)
+                {
+                    hour += 12;
+                }
+                else if(ToMeridiem=="AM" && hour == 12)
+                {
+                    hour = 0;
+                }
+                return new DateTime(0, 0, 0, hour, ToMinute, 0);
+            }
+            }
 
         [NotMapped]
         public List<string>? MedicalHistory { get; set; } = new List<string>();
         public string? ApplicationUserId { get; set; }
         public int? PatientId { get; set; }
-
-        public Encounter()
-        {
-            // Set EncounterDate from corresponding non-mapped properties
-            if (EncounterDateTimeDay != 0 && EncounterDateTimeMonth != 0 && EncounterDateTimeYear != 0)
-            {
-                EncounterDate = new DateTime(EncounterDateTimeYear, EncounterDateTimeMonth, EncounterDateTimeDay);
-            }
-
-            // Set From property from related non-mapped properties
-            if (FromHour != 0 && FromMinute != 0 && FromMeridiem != null)
-            {
-                From = DateTime.Today
-                    .AddHours(FromMeridiem == "PM" && FromHour != 12 ? FromHour + 12 : FromHour) // Adjust for 12 PM
-                    .AddMinutes(FromMinute);
-            }
-
-            // Set To property with corresponding non-mapped properties
-            if (ToHour.HasValue && ToMinute.HasValue && ToMeridiem != null)
-            {
-                To = DateTime.Today
-                    .AddHours(ToMeridiem == "PM" && ToHour != 12 ? ToHour.Value + 12 : ToHour.Value) // Adjust for 12 PM
-                    .AddMinutes(ToMinute.Value);
-            }
-        }
-
 
     }
 }
