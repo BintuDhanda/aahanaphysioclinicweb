@@ -7,53 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using aahanaphysioclinic.Data;
 using aahanaphysioclinic.Model;
+using Microsoft.AspNetCore.Identity;
+using aahanaphysioclinic.Utilities;
 
 namespace aahanaphysioclinic.Controllers
 {
     public class EncountersController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public EncountersController(ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public EncountersController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Encounters
         public async Task<IActionResult> Index()
         {
-            //var applicationDbContext = _context.Encounters.Include(e => e.ApplicationUser);
-            //return View(await applicationDbContext.ToListAsync());
-            
-            List<Encounter> encounters = new List<Encounter>()
-            {
-                new Encounter
-                {
-                    EncounterId=1,
-                    ApplicationUserId="userid",
-                    Diagnosis="Diagnosis",
-                    CheifComplaint="Chief Complaint",
-                    Fees=200,
-                    From=DateTime.Now.Subtract(TimeSpan.FromMinutes(30)),
-                    To= DateTime.Now,
-                    EncounterDate=DateTime.Now.Date,
-                    PatientId=1,
-                    VAScale=10
-                },
-                new Encounter
-                {
-                    EncounterId=2,
-                    ApplicationUserId="userid",
-                    Diagnosis="Diagnosis",
-                    CheifComplaint="Chief Complaint",
-                    Fees=200,
-                    From=DateTime.Now.Subtract(TimeSpan.FromMinutes(30)),
-                    To = DateTime.Now,
-                    EncounterDate=DateTime.Now.Date,
-                    PatientId=2,
-                    VAScale=5
-                }
-            };
+            var encounters = await _context.Encounter.ToListAsync();
             return View(encounters);
         }
 
@@ -90,11 +62,23 @@ namespace aahanaphysioclinic.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    // If user is not authenticated, handle accordingly (e.g., redirect to login page)
+                    return RedirectToAction("Index", "Accounts"); // Adjust to your application's login action
+                }
+
+                encounter.EncounterDate = Utility.GetDateFromYearMonthDay(encounter.EncounterDateTimeYear, encounter.EncounterDateTimeMonth, encounter.EncounterDateTimeDay);
+                encounter.From = Utility.GetTimeFromHoursMinutes(encounter.FromHour, encounter.FromMinute, encounter.FromMeridiem);
+                encounter.To = Utility.GetTimeFromHoursMinutes(encounter.ToHour, encounter.ToMinute, encounter.ToMeridiem);
+                encounter.MedicalHistory = encounter.MedicalHistoryItems != null? string.Join(',', encounter.MedicalHistoryItems): "";
+                encounter.ApplicationUserId = user.Id;
+
                 _context.Add(encounter);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", encounter.ApplicationUserId);
             return View(encounter);
         }
 

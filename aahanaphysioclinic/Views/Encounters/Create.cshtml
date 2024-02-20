@@ -164,14 +164,14 @@
                         <label class="form-label textGradient">Medical History (if Any)</label><br />
                         <!-- Checkboxes for specific medical history items -->
                         <!-- (BP, Diabetes, Heart Stunt, Pace Maker, Allergies, Pregnancy, Metal Implant) -->
-                        <label><input type="checkbox" asp-for="MedicalHistory" name="MedicalHistory" value="BP" /> BP</label><br />
-                        <label><input type="checkbox" asp-for="MedicalHistory" name="MedicalHistory" value="Diabetes" /> Diabetes</label><br />
-                        <label><input type="checkbox" asp-for="MedicalHistory" name="MedicalHistory" value="HeartStunt" /> Heart Stunt</label><br />
-                        <label><input type="checkbox" asp-for="MedicalHistory" name="MedicalHistory" value="PaceMaker" /> Pace Maker</label><br />
-                        <label><input type="checkbox" asp-for="MedicalHistory" name="MedicalHistory" value="Allergies" /> Allergies</label><br />
-                        <label><input type="checkbox" asp-for="MedicalHistory" name="MedicalHistory" value="Pregnancy" /> Pregnancy</label><br />
-                        <label><input type="checkbox" asp-for="MedicalHistory" name="MedicalHistory" value="MetalImplant" /> Metal Implant</label><br />
-                        <span asp-validation-for="MedicalHistory" class="text-danger"></span>
+                        <label><input type="checkbox" asp-for="MedicalHistoryItems" name="MedicalHistoryItems" value="BP" /> BP</label><br />
+                        <label><input type="checkbox" asp-for="MedicalHistoryItems" name="MedicalHistoryItems" value="Diabetes" /> Diabetes</label><br />
+                        <label><input type="checkbox" asp-for="MedicalHistoryItems" name="MedicalHistoryItems" value="HeartStunt" /> Heart Stunt</label><br />
+                        <label><input type="checkbox" asp-for="MedicalHistoryItems" name="MedicalHistoryItems" value="PaceMaker" /> Pace Maker</label><br />
+                        <label><input type="checkbox" asp-for="MedicalHistoryItems" name="MedicalHistoryItems" value="Allergies" /> Allergies</label><br />
+                        <label><input type="checkbox" asp-for="MedicalHistoryItems" name="MedicalHistoryItems" value="Pregnancy" /> Pregnancy</label><br />
+                        <label><input type="checkbox" asp-for="MedicalHistoryItems" name="MedicalHistoryItems" value="MetalImplant" /> Metal Implant</label><br />
+                        <span asp-validation-for="MedicalHistoryItems" class="text-danger"></span>
                     </div>
 
 
@@ -312,7 +312,7 @@
             })
             .then(data => {
                 patientDetailsLabel.innerText = `Patient Name: ${data.patientName}, Mobile Number: ${data.mobileNumber}`;
-                document.getElementById("patientId").value = data.id; // Assuming id is the property for PatientId
+                document.getElementById("patientId").value = data.patientId; // Assuming id is the property for PatientId
                 document.getElementById("addButton").disabled = false; // Enable add button
             })
             .catch(error => {

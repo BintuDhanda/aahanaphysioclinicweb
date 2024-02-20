@@ -9,7 +9,7 @@ namespace aahanaphysioclinic.Model
         public int EncounterId { get; set; }
         public decimal? Fees { get; set; }
         public string? CheifComplaint { get; set; }
-        public int VAScale { get; set; }
+        public byte VAScale { get; set; }
         public string? Diagnosis { get; set; }
         public string? Treatment { get; set; }
         
@@ -20,15 +20,7 @@ namespace aahanaphysioclinic.Model
         public int EncounterDateTimeMonth { get; set; }
         [NotMapped]
         public int EncounterDateTimeYear { get; set; }
-
-        public DateTime? EncounterDate
-        {
-            get
-            {
-                return new DateTime(EncounterDateTimeYear, EncounterDateTimeMonth, EncounterDateTimeDay, 0, 0, 0, 0);
-            }
-        }
-
+        public DateTime? EncounterDate { get; set; }
 
         // For Encounter From Time Selection
         [NotMapped]
@@ -46,40 +38,12 @@ namespace aahanaphysioclinic.Model
         [NotMapped]
         public string ToMeridiem { get; set; }
 
-        public DateTime From {
-            get
-            {
-                int hour = FromHour;
-                if (FromMeridiem == "PM" && hour < 12)
-                {
-                    hour += 12;
-                }
-                else if (FromMeridiem == "AM" && hour == 12)
-                {
-                    hour = 0;
-                }
+        public TimeSpan From { get; set; }
+        public TimeSpan To { get; set; }
 
-                return new DateTime(0, 0, 0, hour, FromMinute, 0);
-            }
-        }
-        public DateTime To {
-            get
-            {
-                int hour = ToHour;
-                if(ToMeridiem=="PM" && hour < 12)
-                {
-                    hour += 12;
-                }
-                else if(ToMeridiem=="AM" && hour == 12)
-                {
-                    hour = 0;
-                }
-                return new DateTime(0, 0, 0, hour, ToMinute, 0);
-            }
-            }
-
+        public string? MedicalHistory { get; set; }
         [NotMapped]
-        public List<string>? MedicalHistory { get; set; } = new List<string>();
+        public List<string>? MedicalHistoryItems { get; set; } = new List<string>();
         public string? ApplicationUserId { get; set; }
         public int? PatientId { get; set; }
 
