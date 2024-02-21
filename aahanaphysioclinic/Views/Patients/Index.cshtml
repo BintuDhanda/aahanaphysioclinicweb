@@ -5,47 +5,97 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-sm-6">
+            <label for="year" class="form-label">Select Year:</label>
+            <select id="year" class="form-select">
+                <option value="">- Select Year -</option>
+                <!-- Populate with available years -->
+                @for (int year = DateTime.Now.Year; year >= 2020; year--)
+                {
+                    <option value="@year">@year</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="month" class="form-label">Select Month:</label>
+            <select id="month" class="form-select">
+                <option value="">- Select Month -</option>
+                <!-- Populate with available months -->
+                @for (int month = 1; month <= 12; month++)
+                {
+                    <option value="@month">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)</option>
+                }
+            </select>
+        </div>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.PatientName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MobileNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatedOn)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+
+    <div class="row mb-3">
+        <div class="col">
+            <a href="/Patients/Create">Add New Patient</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table id="patientsTable" class="table table-bordered table-striped">
+            <thead class="thead-dark">
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PatientName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MobileNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CreatedOn)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.PatientId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.PatientId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.PatientId">Delete</a>
-                    </td>
+                    <th>Patient Name</th>
+                    <th>Mobile Number</th>
+                    <th>Created On</th>
+                    <th>Action</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.PatientName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MobileNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CreatedOn)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.PatientId" class="btn btn-primary">
+                                Edit
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.PatientId" class="btn btn-info">
+                                Details
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.PatientId" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
+
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#patientsTable').DataTable();
+
+            $('#month').change(function () {
+                var year = $('#year').val();
+                var month = $('#month').val();
+                var url = '/Patients/Index';
+
+                if (year) {
+                    url += '?year=' + year;
+                }
+                if (month) {
+                    url += (year ? '&' : '?') + 'month=' + month;
+                }
+
+                window.location.href = url;
+            });
+        });
+    </script>
+}

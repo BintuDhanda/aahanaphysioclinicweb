@@ -23,11 +23,22 @@ namespace aahanaphysioclinic.Controllers
         }
 
         // GET: Patients
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery] int year = 0, int month = 0)
         {
-              return _context.Patient != null ? 
-                          View(await _context.Patient.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Patients'  is null.");
+            // Set default query parameters
+            var defaultYear = DateTime.Now.Year;
+            var defaultMonth = DateTime.Now.Month;
+
+            // Check if year and month are not provided or are invalid
+            if (year == 0 || month == 0 || year > DateTime.Now.Year || month > 12)
+            {
+                // Redirect to the same action with default parameters
+                return RedirectToAction(nameof(Index), new { year = defaultYear, month = defaultMonth });
+            }
+
+            // Filter data based on provided year and month
+            IQueryable<Patient> query = _context.Patient.Where(e => e.CreatedOn.Year == year && e.CreatedOn.Month == month);
+            return View(await query.ToListAsync());
         }
 
         // GET: Patients/Details/5

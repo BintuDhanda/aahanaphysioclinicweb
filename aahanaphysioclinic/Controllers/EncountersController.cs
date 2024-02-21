@@ -29,36 +29,39 @@ namespace aahanaphysioclinic.Controllers
             var defaultYear = DateTime.Now.Year;
             var defaultMonth = DateTime.Now.Month;
 
-            // Redirect to the same action with default parameters if year and month are not provided
+            // Check if year and month are not provided or are invalid
             if (year == 0 || month == 0)
             {
+                // Redirect to the same action with default parameters
                 return RedirectToAction(nameof(Index), new { year = defaultYear, month = defaultMonth });
             }
-            else
-            {
-                IQueryable<Encounter> encountersQuery = _context.Encounter.Join(
-                    _context.Patient,
-                    e => e.PatientId,
-                    p => p.PatientId,
-                    (e, p) => new Encounter
-                    {
-                        PatientName = p.PatientName,
-                        VAScale = e.VAScale,
-                        PatientId = e.PatientId,
-                        CheifComplaint = e.CheifComplaint,
-                        Diagnosis = e.Diagnosis,
-                        EncounterDate = e.EncounterDate,
-                        Fees = e.Fees,
-                        From = e.From,
-                        To = e.To,
-                        MedicalHistory = e.MedicalHistory,
-                        EncounterId = e.EncounterId
-                    });
 
-                encountersQuery = encountersQuery.Where(e => e.EncounterDate.HasValue && e.EncounterDate.Value.Year == year && e.EncounterDate.Value.Month == month);
-                var encounters = await encountersQuery.ToListAsync();
-                return View(encounters);
-            }
+            // Filter data based on provided year and month
+            var encounters = await _context.Encounter
+                .Join(_context.Patient,
+                      e => e.PatientId,
+                      p => p.PatientId,
+                      (e, p) => new Encounter
+                      {
+                          PatientName = p.PatientName,
+                          VAScale = e.VAScale,
+                          PatientId = e.PatientId,
+                          CheifComplaint = e.CheifComplaint,
+                          Diagnosis = e.Diagnosis,
+                          EncounterDate = e.EncounterDate,
+                          Fees = e.Fees,
+                          From = e.From,
+                          To = e.To,
+                          MedicalHistory = e.MedicalHistory,
+                          EncounterId = e.EncounterId
+                      })
+                .Where(e => e.EncounterDate.HasValue &&
+                            e.EncounterDate.Value.Year == year &&
+                            e.EncounterDate.Value.Month == month)
+                .ToListAsync();
+
+            return View(encounters);
+
         }
 
 
