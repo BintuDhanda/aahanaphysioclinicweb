@@ -41,5 +41,11 @@ namespace aahanaphysioclinic.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        public async Task<IActionResult> LogOutAsync()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

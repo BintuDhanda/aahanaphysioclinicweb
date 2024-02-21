@@ -5,26 +5,40 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<div class="container my-5">
+<style>
+    .custom-container {
+        margin-top: 50px; /* Add margin from the top */
+        margin-bottom: 50px; /* Add margin from the bottom */
+    }
+
+    /* Properly space button */
+    .custom-form-group button {
+        margin-top: 20px; /* Add margin from the top */
+        margin-bottom: 20px; /* Add margin from the bottom */
+    }
+</style>
+
+<div class="custom-container my-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Login</h2>
+                    <h2 class="card-title text-center mb-4 textGradient">Login</h2>
                     <form asp-action="Index" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="form-group">
+                        <div class="custom-form-group">
                             <label asp-for="UserName" class="control-label">Username</label>
                             <input asp-for="UserName" name="UserName" class="form-control" placeholder="Enter your username" />
                             <span asp-validation-for="UserName" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
+                        <div class="custom-form-group">
                             <label asp-for="Password" class="control-label">Password</label>
                             <input asp-for="Password" name="Password" type="password" class="form-control" placeholder="Enter your password" />
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <div class="custom-form-group text-center">
+                            <!-- Center align button -->
+                            <button type="submit" class="btn custom-btn-primary">Login</button>
                         </div>
                     </form>
                 </div>

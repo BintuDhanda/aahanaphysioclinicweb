@@ -38,26 +38,49 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" asp-controller="Home" asp-action="Index" >Home</a>
+                            <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="AboutDoctor" asp-action="Index">About Doctor</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="OurServices" asp-action="Index">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="VirtualTour" asp-action="Index">Virtual Tour</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Blogs" asp-action="Index">Blogs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="BookAnAppointment" asp-action="Index">Book an Appointment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Accounts" asp-action="Index"> Admin Portal</a>
-                        </li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="AboutDoctor" asp-action="Index">About Doctor</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="OurServices" asp-action="Index">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="VirtualTour" asp-action="Index">Virtual Tour</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Blogs" asp-action="Index">Blogs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="BookAnAppointment" asp-action="Index">Book an Appointment</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Accounts" asp-action="Index"> Admin Portal</a>
+                            </li>
+                        }
+                       
+                        
+                         @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Patients" asp-action="Index">Patients</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Encounters" asp-action="Index">Encounters</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="LabReports" asp-action="Index">LabReports</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Blogs" asp-action="Index">Blogs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Accounts" asp-action="LogOut">Log-Out</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
