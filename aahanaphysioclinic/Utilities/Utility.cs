@@ -6,7 +6,7 @@
         {
             return new DateTime(Year, Month, Day, 0, 0, 0, 0);
         }
-        public static TimeSpan GetTimeFromHoursMinutes(int Hours, int Minutes, string Meridiem)
+        public static DateTime GetTimeFromHoursMinutes(int Hours, int Minutes, string Meridiem)
         {
             if (Meridiem == "PM" && Hours < 12)
             {
@@ -17,7 +17,7 @@
                 Hours = 0;
             }
 
-            return new TimeSpan(Hours, Minutes, 0);
+            return new DateTime(DateTime.MinValue.Year,DateTime.MinValue.Month,DateTime.MinValue.Day, Hours, Minutes, 0);
         }
 
     }

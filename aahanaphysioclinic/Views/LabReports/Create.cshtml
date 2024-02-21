@@ -1,0 +1,70 @@
+﻿@model aahanaphysioclinic.Model.LabReport
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header textGradient">
+                    <h4>Create LabReport</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="UploadTime" class="control-label">Upload Time:</label>
+                            <input asp-for="UploadTime" class="form-control" />
+                            <span asp-validation-for="UploadTime" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ReportUrl" class="control-label">Report URL:</label>
+                            <input asp-for="ReportUrl" class="form-control" />
+                            <span asp-validation-for="ReportUrl" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LabReportType" class="control-label">Lab Report Type:</label>
+                            <input asp-for="LabReportType" class="form-control" />
+                            <span asp-validation-for="LabReportType" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EncounterId" class="control-label">Encounter ID:</label>
+                            <select asp-for="EncounterId" class="form-control" asp-items="ViewBag.EncounterId"></select>
+                            <span asp-validation-for="EncounterId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Prevent form submission if any fields are invalid
+        (function () {
+            'use strict';
+
+            var forms = document.querySelectorAll('.needs-validation');
+
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
+}

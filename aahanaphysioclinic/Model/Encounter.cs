@@ -38,14 +38,17 @@ namespace aahanaphysioclinic.Model
         [NotMapped]
         public string ToMeridiem { get; set; }
 
-        public TimeSpan From { get; set; }
-        public TimeSpan To { get; set; }
+        public DateTime From { get; set; }
+        public DateTime To { get; set; }
 
         public string? MedicalHistory { get; set; }
         [NotMapped]
         public List<string>? MedicalHistoryItems { get; set; } = new List<string>();
         public string? ApplicationUserId { get; set; }
         public int? PatientId { get; set; }
+        
+        [NotMapped]
+        public string? PatientName { get; set; }
 
     }
 }

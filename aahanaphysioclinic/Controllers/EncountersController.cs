@@ -23,11 +23,45 @@ namespace aahanaphysioclinic.Controllers
         }
 
         // GET: Encounters
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery] int year = 0, int month = 0)
         {
-            var encounters = await _context.Encounter.ToListAsync();
-            return View(encounters);
+            // Set default query parameters
+            var defaultYear = DateTime.Now.Year;
+            var defaultMonth = DateTime.Now.Month;
+
+            // Redirect to the same action with default parameters if year and month are not provided
+            if (year == 0 || month == 0)
+            {
+                return RedirectToAction(nameof(Index), new { year = defaultYear, month = defaultMonth });
+            }
+            else
+            {
+                IQueryable<Encounter> encountersQuery = _context.Encounter.Join(
+                    _context.Patient,
+                    e => e.PatientId,
+                    p => p.PatientId,
+                    (e, p) => new Encounter
+                    {
+                        PatientName = p.PatientName,
+                        VAScale = e.VAScale,
+                        PatientId = e.PatientId,
+                        CheifComplaint = e.CheifComplaint,
+                        Diagnosis = e.Diagnosis,
+                        EncounterDate = e.EncounterDate,
+                        Fees = e.Fees,
+                        From = e.From,
+                        To = e.To,
+                        MedicalHistory = e.MedicalHistory,
+                        EncounterId = e.EncounterId
+                    });
+
+                encountersQuery = encountersQuery.Where(e => e.EncounterDate.HasValue && e.EncounterDate.Value.Year == year && e.EncounterDate.Value.Month == month);
+                var encounters = await encountersQuery.ToListAsync();
+                return View(encounters);
+            }
         }
+
+
 
         // GET: Encounters/Details/5
         public async Task<IActionResult> Details(int? id)
