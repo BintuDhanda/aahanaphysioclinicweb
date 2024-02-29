@@ -14,5 +14,6 @@
     <WebStackScaffolding_DbContextTypeFullName>aahanaphysioclinic.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <NameOfLastUsedPublishProfile>C:\Users\BintuDhanda\source\repos\aahanaphysioclinicweb\aahanaphysioclinic\Properties\PublishProfiles\aahanaphysioclinic - Zip Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

@@ -3,6 +3,12 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    
+    // Get the query parameters
+    var yearParam = ViewContext.HttpContext.Request.Query["year"];
+    var monthParam = ViewContext.HttpContext.Request.Query["month"];
+
 }
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -82,6 +88,12 @@
         $(document).ready(function () {
             var table = $('#patientsTable').DataTable();
 
+            // Set selected year and month based on query parameters
+            var yearParam = '@yearParam';
+            var monthParam = '@monthParam';
+            $('#year').val(yearParam);
+            $('#month').val(monthParam);
+
             $('#month').change(function () {
                 var year = $('#year').val();
                 var month = $('#month').val();
@@ -98,4 +110,7 @@
             });
         });
     </script>
+}
+
+
 }
