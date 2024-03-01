@@ -48,6 +48,8 @@ namespace aahanaphysioclinic.Data
 
         public DbSet<Patient> Patient { get; set; }
         public DbSet<Encounter> Encounter { get; set; }
-        public DbSet<aahanaphysioclinic.Model.LabReport>? LabReport { get; set; }
+        public DbSet<LabReport>? LabReport { get; set; }
+        public DbSet<FileStorage>? FileStorage { get; set; }
+
     }
 }
