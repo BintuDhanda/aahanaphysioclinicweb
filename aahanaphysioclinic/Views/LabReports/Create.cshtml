@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    var encounterId = ViewContext.HttpContext.Request.Query["EncounterId"];
 }
 
 <div class="container">
@@ -13,28 +15,37 @@
                     <h4>Create LabReport</h4>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Create" class="needs-validation" novalidate>
+                    <form asp-action="Create" enctype="multipart/form-data" class="needs-validation" novalidate>
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input asp-for="EncounterId" type="hidden" class="control-label" value="@encounterId" />
+                        <!-- File input for Lab Report File -->
                         <div class="form-group">
-                            <label asp-for="UploadTime" class="control-label">Upload Time:</label>
-                            <input asp-for="UploadTime" class="form-control" />
-                            <span asp-validation-for="UploadTime" class="text-danger"></span>
+                            <label class="control-label">Upload Lab Report File:</label><br />
+                            <input type="file" name="LabReportFile" class="form-control" />
+                            <span asp-validation-for="LabReportFile" class="text-danger"></span>
                         </div>
+                        <!-- Radio button list for Lab Report Type -->
                         <div class="form-group">
-                            <label asp-for="ReportUrl" class="control-label">Report URL:</label>
-                            <input asp-for="ReportUrl" class="form-control" />
-                            <span asp-validation-for="ReportUrl" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="LabReportType" class="control-label">Lab Report Type:</label>
-                            <input asp-for="LabReportType" class="form-control" />
+                            <label class="control-label">Lab Report Type:</label><br />
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="LabReportType" id="MRI" value="MRI">
+                                <label class="form-check-label" for="MRI">MRI</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="LabReportType" id="XRay" value="X-Ray">
+                                <label class="form-check-label" for="XRay">X-Ray</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="LabReportType" id="Ultrasound" value="Ultrasound">
+                                <label class="form-check-label" for="Ultrasound">Ultrasound</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="LabReportType" id="Others" value="Others">
+                                <label class="form-check-label" for="Others">Others</label>
+                            </div>
                             <span asp-validation-for="LabReportType" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="EncounterId" class="control-label">Encounter ID:</label>
-                            <select asp-for="EncounterId" class="form-control" asp-items="ViewBag.EncounterId"></select>
-                            <span asp-validation-for="EncounterId" class="text-danger"></span>
-                        </div>
+                        
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Create</button>
                             <a asp-action="Index" class="btn btn-secondary">Back to List</a>
@@ -45,6 +56,7 @@
         </div>
     </div>
 </div>
+
 
 @section Scripts {
     <script>

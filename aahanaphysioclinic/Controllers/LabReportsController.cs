@@ -20,9 +20,9 @@ namespace aahanaphysioclinic.Controllers
         }
 
         // GET: LabReports
-        public async Task<IActionResult> Index([FromQuery] int encounterId=0)
+        public async Task<IActionResult> Index([FromQuery] int EncounterId=0)
         {
-            IQueryable<LabReport> labReports = _context.LabReport?.Where(l => l.EncounterId == encounterId); 
+            IQueryable<LabReport> labReports = _context.LabReport?.Where(l => l.EncounterId == EncounterId); 
     
             return View(await labReports.ToListAsync());
         }

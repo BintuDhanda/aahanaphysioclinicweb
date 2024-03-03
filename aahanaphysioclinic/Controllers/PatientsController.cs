@@ -143,41 +143,29 @@ namespace aahanaphysioclinic.Controllers
         }
 
         // GET: Patients/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete([FromQuery] int? PatientId)
         {
-            if (id == null || _context.Patient == null)
+            if (PatientId == null)
             {
                 return NotFound();
             }
 
-            var patient = await _context.Patient
-                .FirstOrDefaultAsync(m => m.PatientId == id);
+            var patient = await _context.Patient.FindAsync(PatientId);
+            if (patient != null)
+            {
+                _context.Patient.Remove(patient);
+                await _context.SaveChangesAsync();
+            }
+
             if (patient == null)
             {
                 return NotFound();
             }
 
-            return View(patient);
+            return Ok("Deleted");
         }
 
-        // POST: Patients/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Patient == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Patients'  is null.");
-            }
-            var patient = await _context.Patient.FindAsync(id);
-            if (patient != null)
-            {
-                _context.Patient.Remove(patient);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        
 
         private bool PatientExists(int id)
         {

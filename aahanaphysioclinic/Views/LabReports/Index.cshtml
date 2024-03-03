@@ -3,6 +3,10 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    // Get the query parameters
+    var encounterId = ViewContext.HttpContext.Request.Query["EncounterId"];
+
 }
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -12,7 +16,7 @@
     <h1 class="textGradient text-center">Lab Reports</h1>
 
     <p>
-        <a href="/LabReports/Create">Add New Report</a>
+        <a href="/LabReports/Create?EncounterId=@encounterId">Add New Report</a>
     </p>
     <table class="table" id="labReportTable">
         <thead>
