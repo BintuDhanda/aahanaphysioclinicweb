@@ -15,10 +15,11 @@ html {
 
 body {
     overflow-x: hidden;
+    font-family: 'Amazon Ember Display', 'Roboto', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6,label
-{
+h1, h2, h3, h4, h5, h6, label {
+    font-family: 'Amazon Ember', 'Roboto Slab', serif;
     background: -webkit-linear-gradient(45deg, #333, #2989d8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

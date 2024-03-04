@@ -5,38 +5,60 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h4 class="textGradient">Edit Patient</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Edit" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="PatientId" name="PatientId" value="@Model.PatientId" />
+                        <div class="form-group">
+                            <label asp-for="PatientName" class="control-label">Patient Name</label>
+                            <input asp-for="PatientName" name="PatientName" class="form-control" value="@Model.PatientName" />
+                            <span asp-validation-for="PatientName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MobileNumber" class="control-label">Mobile Number</label>
+                            <input asp-for="MobileNumber" name="MobileNumber" class="form-control" value="@Model.MobileNumber" />
+                            <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Gender" class="control-label">Gender</label>
+                            <select asp-for="Gender" name="Gender" class="form-control">
+                                <option value="">Select Gender</option>
+                                <option value="Male" selected="@Model.Gender == " Male" ? "selected" : null">Male</option>
+                                <option value="Female" selected="@Model.Gender == " Female" ? "selected" : null">Female</option>
+                                <option value="Other" selected="@Model.Gender == " Other" ? "selected" : null">Other</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Occupation" class="control-label">Occupation</label>
+                            <select asp-for="Occupation" name="Occupation" class="form-control">
+                                <option value="">Select Occupation</option>
+                                <option value="Private" selected="@Model.Occupation == " Private" ? "selected" : null">Private</option>
+                                <option value="Govt" selected="@Model.Occupation == " Govt" ? "selected" : null">Govt</option>
+                                <option value="Student" selected="@Model.Occupation == " Student" ? "selected" : null">Student</option>
+                                <option value="Un-Employed" selected="@Model.Occupation == " Un-Employed" ? "selected" : null">Un-Employed</option>
+                                <option value="Contract" selected="@Model.Occupation == " Contract" ? "selected" : null">Contract</option>
+                                <option value="Others" selected="@Model.Occupation == " Others" ? "selected" : null">Others</option>
+                            </select>
+                            <span asp-validation-for="Occupation" class="text-danger"></span>
+                        </div>
+                        <div class="form-group text-center" style="margin:10px">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
-<h4>Patient</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="PatientName" class="control-label"></label>
-                <input asp-for="PatientName" class="form-control" />
-                <span asp-validation-for="PatientName" class="text-danger"></span>
+            <div class="text-center" style="margin:10px">
+                <a href="/Patients/Index">Back to List</a>
             </div>
-            <div class="form-group">
-                <label asp-for="MobileNumber" class="control-label"></label>
-                <input asp-for="MobileNumber" class="form-control" />
-                <span asp-validation-for="MobileNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedOn" class="control-label"></label>
-                <input asp-for="CreatedOn" class="form-control" />
-                <span asp-validation-for="CreatedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+
+        </div>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-

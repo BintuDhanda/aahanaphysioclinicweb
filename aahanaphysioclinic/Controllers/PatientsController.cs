@@ -112,12 +112,8 @@ namespace aahanaphysioclinic.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,PatientName,MobileNumber,CreatedOn")] Patient patient)
+        public async Task<IActionResult> Edit(Patient patient)
         {
-            if (id != patient.PatientId)
-            {
-                return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
