@@ -56,7 +56,7 @@ namespace aahanaphysioclinic.Utilities
             var fileRecord = new FileStorage
             {
                 FileName = fileName,
-                FileURL = $"FileStorage/{fileName}" // Assuming you want to store the relative path in the database
+                FileURL = $"FileStorage/" // Assuming you want to store the relative path in the database
             };
 
             dbContext.FileStorage.Add(fileRecord);

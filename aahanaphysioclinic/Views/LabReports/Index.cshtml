@@ -32,7 +32,7 @@
                     @Html.DisplayNameFor(model => model.UploadedOn)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ReportUrl)
+                    File Link
                 </th>
                 <th>Action</th>
             </tr>
@@ -52,7 +52,7 @@
                         @Html.DisplayFor(modelItem => item.UploadedOn)
                     </td>
                     <td>
-                        <a href="@item.ReportUrl">View Report</a>
+                        <a href="@item.FileId" target="_blank">View Report</a>
                     </td>
                     <td>
                         <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -73,7 +73,7 @@
                     @Html.DisplayNameFor(model => model.UploadedOn)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ReportUrl)
+                    File Link
                 </th>
                 <th>Action</th>
             </tr>

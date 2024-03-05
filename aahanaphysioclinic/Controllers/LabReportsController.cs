@@ -7,16 +7,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using aahanaphysioclinic.Data;
 using aahanaphysioclinic.Model;
+using aahanaphysioclinic.Utilities;
 
 namespace aahanaphysioclinic.Controllers
 {
     public class LabReportsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public LabReportsController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _environment;
+        public LabReportsController(ApplicationDbContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         // GET: LabReports
@@ -47,7 +49,6 @@ namespace aahanaphysioclinic.Controllers
         // GET: LabReports/Create
         public IActionResult Create()
         {
-            ViewData["EncounterId"] = new SelectList(_context.Encounter, "EncounterId", "EncounterId");
             return View();
         }
 
@@ -56,15 +57,19 @@ namespace aahanaphysioclinic.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UploadTime,ReportUrl,LabReportType,EncounterId")] LabReport labReport)
+        public async Task<IActionResult> Create(LabReport labReport)
         {
             if (ModelState.IsValid)
             {
+                labReport.UploadedOn = DateTime.UtcNow;
+                if(labReport.LabReportFile != null)
+                {
+                    labReport.FileId = await Utility.UploadFile(labReport.LabReportFile, _environment, _context);
+                }
                 _context.Add(labReport);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["EncounterId"] = new SelectList(_context.Encounter, "EncounterId", "EncounterId", labReport.EncounterId);
+                return RedirectToAction("Index", "LabReports", new { EncounterId = labReport.EncounterId });
+            }            
             return View(labReport);
         }
 

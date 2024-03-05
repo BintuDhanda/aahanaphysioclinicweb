@@ -7,7 +7,7 @@
     var encounterId = ViewContext.HttpContext.Request.Query["EncounterId"];
 }
 
-<div class="container">
+<div class="container" style="margin:10px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,13 +15,14 @@
                     <h4>Create LabReport</h4>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Create" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        @Html.AntiForgeryToken()
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input asp-for="EncounterId" type="hidden" class="control-label" value="@encounterId" />
+                        <input asp-for="EncounterId" name="EncounterId" type="hidden" class="control-label" value="@encounterId" />
                         <!-- File input for Lab Report File -->
                         <div class="form-group">
                             <label class="control-label">Upload Lab Report File:</label><br />
-                            <input type="file" name="LabReportFile" class="form-control" />
+                            <input type="file" name="LabReportFile" class="form-control" required/>
                             <span asp-validation-for="LabReportFile" class="text-danger"></span>
                         </div>
                         <!-- Radio button list for Lab Report Type -->
@@ -47,8 +48,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Create</button>
-                            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                            <button type="submit" class="btn btn-primary">Upload Report</button>
+                            <a href="/Encounters/" class="btn btn-secondary">Go Back</a>
                         </div>
                     </form>
                 </div>
@@ -58,25 +59,3 @@
 </div>
 
 
-@section Scripts {
-    <script>
-        // Prevent form submission if any fields are invalid
-        (function () {
-            'use strict';
-
-            var forms = document.querySelectorAll('.needs-validation');
-
-            Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-        })();
-    </script>
-}

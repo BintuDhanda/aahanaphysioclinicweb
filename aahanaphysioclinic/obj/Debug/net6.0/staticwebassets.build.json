@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "R70993PFaylSgy+Kjk9Wf35zjHFs8+cUmDNAmxfPPd0=",
+  "Hash": "gDIgK4zpg1NU1rQlfC7Yu0ygyZI8Wn3slEm+Qr+bUQA=",
   "Source": "aahanaphysioclinic",
   "BasePath": "_content/aahanaphysioclinic",
   "Mode": "Default",
@@ -1749,6 +1749,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\09b2069a-b068-4cd1-ba39-45347d56fda8.jpg",
+      "SourceId": "aahanaphysioclinic",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\",
+      "BasePath": "_content/aahanaphysioclinic",
+      "RelativePath": "FileStorage/09b2069a-b068-4cd1-ba39-45347d56fda8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FileStorage\\09b2069a-b068-4cd1-ba39-45347d56fda8.jpg"
     },
     {
       "Identity": "C:\\Users\\BintuDhanda\\source\\repos\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\js\\site.js",
