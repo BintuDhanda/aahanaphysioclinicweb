@@ -1,0 +1,5 @@
+# Ignore .vs folder 
+.vs/
+
+# Ignore AahanaClinic/obj folder
+AahanaClinic/obj/

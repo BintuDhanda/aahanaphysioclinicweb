@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "About Doctor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Custom CSS for styled list items */
+    .styled-list li {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+        .styled-list li:before {
+            content: "\2022"; /* Bullet character */
+            color: #ff6600; /* Custom bullet color */
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+</style>
+
+<section id="doctor" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4 textGradient">Meet Dr. Annu Sangwan</h2>
+                <p class="lead mb-4 textGradient">Your Trusted Therapist</p>
+                <ul class="list-unstyled text-start styled-list">
+                    <li>Doctor of Physiotherapy (DPT)</li>
+                    <li>Bachelor of Physiotherapy (B.P.T.)</li>
+                    <li>Master of Physiotherapy in Neurology (M.P.T.)</li>
+                    <li>Bringing over a decade of dedicated experience</li>
+                    <li>Former Physiotherapist at Apollo Clinics, Gurugram</li>
+                    <li>Former Physiotherapist at Phyworld, Defence Colony, Delhi</li>
+                </ul>
+                <p class="mt-4"><strong>Clinic:</strong> Aahana Physiotherapy Clinic has been serving the community of Charkhi Dadri and surrounding areas since 2021. We are committed to offering state-of-the-art physiotherapy services tailored to your needs, utilizing the latest equipment and techniques for optimal results.</p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,73 @@
+﻿@model PatientViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h4 class="textGradient">Edit Patient</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Edit" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" name="PatientId" value="@Model.Id" />
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Patient Name</label>
+                            <input asp-for="Name" class="form-control" required />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MobileNumber" class="control-label">Mobile Number (Without +91)</label>
+                            <input asp-for="MobileNumber" max="10" class="form-control" required />
+                            <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Gender" class="control-label">Gender</label>
+                            <select asp-for="Gender" class="form-control">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Occupation" class="control-label">Occupation</label>
+                            <select asp-for="Occupation" class="form-control">
+                                <option value="">Select Occupation</option>
+                                <option value="Private">Private</option>
+                                <option value="Govt">Govt</option>
+                                <option value="Student">Student</option>
+                                <option value="Un-Employed">Un-Employed</option>
+                                <option value="Contract">Contract</option>
+                                <option value="Others">Others</option>
+                            </select>
+                            <span asp-validation-for="Occupation" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Address</label>
+                            <input type="text" asp-for="Address" class="form-control" placeholder="Address Line" />
+                            <input type="text" asp-for="State" class="form-control mt-2" placeholder="State" />
+                            <input type="text" asp-for="City" class="form-control mt-2" placeholder="City" />
+                            <input type="text" asp-for="PinCode" class="form-control mt-2" placeholder="Pin Code" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                        <div class="">
+                            <div class="form-group text-center" style="margin:10px">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+
+                            <div class="text-center" style="margin:10px">
+                                <a href="/Patients/Index">Back to List</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

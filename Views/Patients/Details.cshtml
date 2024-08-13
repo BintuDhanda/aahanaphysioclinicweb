@@ -1,0 +1,61 @@
+﻿@model Patient
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-4">
+    <h3>Patient Details</h3>
+    <hr />
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @* @Html.DisplayNameFor(model => model.MobileNumber) *@
+                Mobile Number
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MobileNumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Occupation)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Occupation)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Address),
+                @Html.DisplayFor(model => model.City),
+                @Html.DisplayFor(model => model.State),
+                @Html.DisplayFor(model => model.PinCode),
+            </dd>
+            <dt class="col-sm-2">
+                @* @Html.DisplayNameFor(model => model.Timestamp) *@
+                Date
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Timestamp)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,361 @@
+﻿@model EncounterViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string[] symbols = { "😊", "😊", "😃", "😃", "😐", "😐", "😕", "😕", "😟", "😟", "😢", "😢" };
+}
+
+<style>
+    /* Updated styles for smaller font size */
+    .form-container {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin: 0 auto;
+        max-width: 900px; /* Increased max-width for two-column layout */
+        background-color: #f8f9fa;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        font-size: 13px; /* Reduced font size */
+        border-radius: 3px;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 3px;
+    }
+
+    .text-danger {
+        font-size: 12px;
+    }
+
+    /* Adjusted style for search button */
+    .input-group {
+        position: relative;
+    }
+
+    .input-group-append {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .btn-outline-secondary {
+        margin-left: -35px; /* Adjust this value based on your layout */
+    }
+
+    .smiley {
+        font-size: 32px; /* Larger smiley size */
+    }
+</style>
+
+<div class="container" style="margin-top:10px;margin-bottom:10px;">
+    <h1 class="textGradient text-center" style="font-size: 24px;">Update Encounter</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="form-container">
+                <form asp-action="Edit" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="mb-3">
+                        <div>
+                            <label asp-for="PatientId" class="form-label textGradient">Patient</label>
+                        </div>
+                        <label id="patientDetailsLabel">@(Model.Patient)</label>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" id="patientId" asp-for="PatientId" />
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label asp-for="CheifComplaint" class="form-label textGradient">Cheif Complaint</label>
+                        <textarea asp-for="CheifComplaint" name="CheifComplaint" class="form-control" rows="4" cols="50"></textarea>
+                        <span asp-validation-for="CheifComplaint" class="text-danger"></span>
+                    </div>
+
+
+                    <!-- Smiley Range HTML -->
+                    <div class="mb-3">
+                        <label asp-for="VAScale" class="form-label textGradient">VAS Scale</label>
+                        <div class="container mt-5">
+                            <div class="col text-center">
+                                <span class="smiley" id="extraSmiley">@symbols[Model.VAScale]</span>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="range" asp-for="VAScale" class="form-range" min="0" max="10" id="rangeInput">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <span>0</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>1</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>2</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>3</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>4</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>5</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>6</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>7</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>8</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>9</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span>10</span>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <span class="smiley" id="fixedSmiley">😊</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="smiley">😃</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="smiley">😐</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="smiley">😕</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="smiley">😟</span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="smiley">😢</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Smiley Range HTML -->
+
+                    <div class="mb-3">
+                        <label class="form-label textGradient">Medical History (if Any)</label><br />
+                        <!-- Checkboxes for specific medical history items -->
+                        <!-- (BP, Diabetes, Heart Stunt, Pace Maker, Allergies, Pregnancy, Metal Implant) -->
+                        <label><input type="checkbox" asp-for="BP" value="true" /> BP</label><br />
+                        <label><input type="checkbox" asp-for="Diabetes" value="true" /> Diabetes</label><br />
+                        <label><input type="checkbox" asp-for="HeartStunt" value="true" /> Heart Stunt</label><br />
+                        <label><input type="checkbox" asp-for="PaceMaker" value="true" /> Pace Maker</label><br />
+                        <label><input type="checkbox" asp-for="Allergies" value="true" /> Allergies</label><br />
+                        <label><input type="checkbox" asp-for="Pregnancy" value="true" /> Pregnancy</label><br />
+                        <label><input type="checkbox" asp-for="MetalImplant" value="true" /> Metal Implant</label><br />
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label asp-for="Diagnosis" class="form-label textGradient">Diagnosis</label>
+                        <textarea asp-for="Diagnosis" name="Diagnosis" class="form-control" rows="4" cols="50"></textarea>
+                        <span asp-validation-for="Diagnosis" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="EncounterDateTimeDay" class="form-label textGradient">Encounter Date</label>
+                        <div class="row gx-2">
+                            <div class="col">
+                                <select asp-for="EncounterDateTimeDay" name="EncounterDateTimeDay" class="form-select">
+                                    @for (int i = 1; i <= 31; i++)
+                                    {
+                                        if (i == DateTime.Today.Day)
+                                        {
+                                            <option value="@i" selected="selected">@i</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select asp-for="EncounterDateTimeMonth" name="EncounterDateTimeMonth" class="form-select">
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        if (i == DateTime.Today.Month)
+                                        {
+                                            <option value="@i" selected="selected">@System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(i)</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@i">@System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(i)</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select asp-for="EncounterDateTimeYear" name="EncounterDateTimeYear" class="form-select">
+                                    @for (int i = DateTime.Now.Year; i >= DateTime.Now.Year - 100; i--)
+                                    {
+                                        if (i == DateTime.Today.Year)
+                                        {
+                                            <option value="@i" selected="selected">@i</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <span asp-validation-for="EncounterDateTimeDay" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="From" class="form-label textGradient">From (Time)</label>
+                        <div class="row gx-2">
+                            <div class="col">
+                                <select asp-for="FromHour" name="FromHour" class="form-select">
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        <option value="@i">@i.ToString().PadLeft(2, '0')</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select asp-for="FromMinute" name="FromMinute" class="form-select">
+                                    @for (int i = 0; i < 60; i++)
+                                    {
+                                        <option value="@i">@i.ToString().PadLeft(2, '0')</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select asp-for="FromMeridiem" name="FromMeridiem" class="form-select">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span asp-validation-for="From" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="To" class="form-label textGradient">To (Time)</label>
+                        <div class="row gx-2">
+                            <div class="col">
+                                <select asp-for="ToHour" name="ToHour" class="form-select">
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        <option value="@i">@i.ToString().PadLeft(2, '0')</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select asp-for="ToMinute" name="ToMinute" class="form-select">
+                                    @for (int i = 0; i < 60; i++)
+                                    {
+                                        <option value="@i">@i.ToString().PadLeft(2, '0')</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select asp-for="ToMeridiem" name="ToMeridiem" class="form-select">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span asp-validation-for="To" class="text-danger"></span>
+                    </div>
+
+
+
+
+                    <div class="mb-3">
+                        <label asp-for="Treatment" class="form-label textGradient">Treatment</label>
+                        <textarea asp-for="Treatment" name="Treatment" class="form-control" rows="4" cols="50"></textarea>
+                        <span asp-validation-for="Treatment" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Fees" class="form-label textGradient">Fees</label>
+                        <input asp-for="Fees" name="Fees" class="form-control" />
+                        <span asp-validation-for="Fees" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button type="submit" id="addButton" class="btn btn-primary"><i class="fas fa-edit"></i> Update Encounter</button>
+                    </div>
+                    <div>
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script>
+    const rangeInput = document.getElementById('rangeInput');
+    const extraSmiley = document.getElementById('extraSmiley');
+    const fixedSmiley = document.getElementById('fixedSmiley');
+
+    rangeInput.addEventListener('input', () => {
+        const value = rangeInput.value;
+        let smiley;
+
+        switch (parseInt(value)) {
+            case 0:
+            case 1:
+                smiley = '😊'; // Extremely happy
+                break;
+            case 2:
+            case 3:
+                smiley = '😃'; // Little bit happy
+                break;
+            case 4:
+            case 5:
+                smiley = '😐'; // Little bit pain
+                break;
+            case 6:
+            case 7:
+                smiley = '😕'; // More pain
+                break;
+            case 8:
+            case 9:
+                smiley = '😟'; // Crying
+                break;
+            case 10:
+                smiley = '😢'; // Crying
+                break;
+            default:
+                smiley = '😐'; // Default to neutral
+        }
+
+        fixedSmiley.innerHTML = '😊'; // Fixed happy face
+        extraSmiley.innerHTML = smiley;
+    });
+</script>

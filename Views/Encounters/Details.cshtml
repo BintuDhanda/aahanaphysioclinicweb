@@ -1,0 +1,101 @@
+﻿@model Encounter
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string[] symbols = { "😊", "😊", "😃", "😃", "😐", "😐", "😕", "😕", "😟", "😟", "😢", "😢" };
+}
+
+<div class="container mt-4">
+    <h3>Patient Details</h3>
+    <hr />
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Patient.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Patient.Name)
+            </dd>
+            <dt class="col-sm-2">
+                Mobile Number
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Patient.MobileNumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Patient.Gender)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Patient.Gender)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Patient.Occupation)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Patient.Occupation)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Patient.Address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Patient.Address),
+                @Html.DisplayFor(model => model.Patient.City),
+                @Html.DisplayFor(model => model.Patient.State),
+                @Html.DisplayFor(model => model.Patient.PinCode),
+            </dd>
+            <dt class="col-sm-2">
+                Date
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Timestamp)
+            </dd>
+            <dt class="col-sm-2">
+                Cheif Complaint
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CheifComplaint)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Diagnosis)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Diagnosis)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Treatment)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Treatment)
+            </dd>
+            <dt class="col-sm-2">
+                Date
+            </dt>
+            <dd class="col-sm-10">
+                @Model.EncounterDate.ToString().Substring(0, 10)
+            </dd>
+            <dt class="col-sm-2">
+                From - To
+            </dt>
+            <dd class="col-sm-10">
+                @Model.From.ToString("hh:mm tt") : @Model.To.ToString("hh:mm tt")
+            </dd>
+            <dt class="col-sm-2">
+                Medical History
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MedicalHistory)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VAScale)
+            </dt>
+            <dd class="col-sm-10">
+                @symbols[Model.VAScale]
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

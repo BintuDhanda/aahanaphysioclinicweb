@@ -1,0 +1,61 @@
+﻿@model ReportViewModel
+
+@{
+    ViewData["Title"] = "Create Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var encounterId = ViewContext.HttpContext.Request.Query["EncounterId"];
+}
+
+<div class="container" style="margin:10px">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header textGradient">
+                    <h4>Create LabReport</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input asp-for="EncounterId" name="EncounterId" type="hidden" class="control-label" value="@encounterId" />
+                        <!-- File input for Lab Report File -->
+                        <div class="form-group">
+                            <label class="control-label">Upload Lab Report File:</label><br />
+                            <input type="file" name="File" class="form-control" required/>
+                            <span asp-validation-for="File" class="text-danger"></span>
+                        </div>
+                        <!-- Radio button list for Lab Report Type -->
+                        <div class="form-group">
+                            <label class="control-label">Lab Report Type:</label><br />
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" asp-for="Type" id="MRI" value="MRI">
+                                <label class="form-check-label" for="MRI">MRI</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" asp-for="Type" id="XRay" value="X-Ray">
+                                <label class="form-check-label" for="XRay">X-Ray</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" asp-for="Type" id="Ultrasound" value="Ultrasound">
+                                <label class="form-check-label" for="Ultrasound">Ultrasound</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" asp-for="Type" id="Others" value="Others">
+                                <label class="form-check-label" for="Others">Others</label>
+                            </div>
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Upload Report</button>
+                            <a href="/Encounters/" class="btn btn-secondary">Go Back</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
