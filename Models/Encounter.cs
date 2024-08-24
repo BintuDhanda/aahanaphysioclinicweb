@@ -3,14 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AahanaClinic.Models
 {
-    public class Encounter
+    public class Encounter : Base<int>
     {
-        public Encounter()
-        {
-            Timestamp = DateTime.Now;
-        }
-        [Key]
-        public int Id { get; set; }
         public int PatientId { get; set; }
         [ForeignKey(nameof(PatientId))]
         public Patient? Patient { get; set; }
@@ -22,8 +16,7 @@ namespace AahanaClinic.Models
         public DateTime EncounterDate { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime Timestamp { get; set; }
         public string? MedicalHistory { get; set; }
+        public int Status { get; set; }
     }
 }

@@ -4,14 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AahanaClinic.Models
 {
-    public class Patient
+    public class Patient : Base<int>
     {
-        public Patient()
-        {
-            Timestamp = DateTime.Now;   
-        }
-        [Key]
-        public int Id { get; set; }
         public string Name { get; set; }
         public string MobileNumber { get; set; }
         public int VisitBalance { get; set; }
@@ -21,9 +15,8 @@ namespace AahanaClinic.Models
         public string? State { get; set; }
         public string? City  { get; set; }
         public string? PinCode  { get; set; }
-        public string CreatedBy { get; set; }
+
         [ForeignKey(nameof(CreatedBy))]
         public ApplicationUser User { get; set; }
-        public DateTime Timestamp { get; set; }
     }
 }

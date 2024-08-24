@@ -1,3 +1,4 @@
+using AahanaClinic;
 using AahanaClinic.Database;
 using AahanaClinic.Models;
 using Microsoft.AspNetCore.Identity;
@@ -25,7 +26,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.ExpireTimeSpan = TimeSpan.FromDays(30); // Adjust expiration time as needed
     options.SlidingExpiration = true;
 });
-
+Mappings.Register();
 
 var app = builder.Build();
 using(var scope = app.Services.CreateScope())

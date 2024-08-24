@@ -9,6 +9,7 @@
     var yearParam = ViewContext.HttpContext.Request.Query["year"];
     var monthParam = ViewContext.HttpContext.Request.Query["month"];
     string[] symbols = { "😊", "😊", "😃", "😃", "😐", "😐", "😕", "😕", "😟", "😟", "😢", "😢" };
+    string[] statuses = { "Pending", "In Progress", "Completed" };
 }
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -42,7 +43,7 @@
 
     <div class="row mb-3">
         <div class="col">
-            <a href="/Encounters/Create" >Add New Encounter</a>
+            <a href="/Encounters/Create">Add New Encounter</a>
         </div>
     </div>
 
@@ -55,6 +56,7 @@
                     <th>Time</th>
                     <th>VSAT</th>
                     <th>Medical History</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -63,10 +65,11 @@
                 {
                     <tr>
                         <td>@item.Patient?.Name (@item.Patient.MobileNumber)</td>
-                        <td>@item.EncounterDate.ToString().Substring(0,10)</td>
+                        <td>@item.EncounterDate.ToString().Substring(0, 10)</td>
                         <td>@item.From.ToString("hh:mm tt") : @item.To.ToString("hh:mm tt")</td>
                         <td><span class="smiley" id="extraSmiley">@symbols[item.VAScale]</span></td>
                         <td>@item.MedicalHistory</td>
+                        <td>@statuses[item.Status]</td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-edit"></i>
@@ -74,6 +77,12 @@
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-info-circle"></i>
                             </a>
+                            @if (item.Status < 2)
+                            {
+                                <a href="#" onclick="onUpdateStatusClick(@item.Id, @item.Status)" class="text-decoration-none">
+                                    <i class="fas fa-history"></i>
+                                </a>
+                            }
                             <a href="#" class="text-decoration-none delete-btn" data-id="@item.Id">
                                 <i class="fas fa-trash-alt text-danger"></i>
                             </a>
@@ -88,10 +97,48 @@
     </div>
 </div>
 
+<div class="modal" id="EncounterStatusModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <form asp-action="UpdateStatus" enctype="multipart/form-data" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input type="hidden" id="EncounterId" name="Id" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Status" class="control-label">Status</label>
+                        <select name="Status" id="EncounterStatus" class="form-control" required>
+                            <option value="">--Select--</option>
+                            <option value="1">@statuses[1]</option>
+                            <option value="2">@statuses[2]</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 @section scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script>
+        function onUpdateStatusClick(id, status) {
+            document.getElementById("EncounterId").value = id;
+            document.getElementById("EncounterStatus").value = status;
+            $("#EncounterStatusModal").modal("show");
+        }
         $(document).ready(function () {
             var table = $('#encountersTable').DataTable();
 
@@ -109,14 +156,13 @@
 
                 window.location.href = url;
             });
-
             // Handle delete button click
             $('.delete-btn').click(function (e) {
                 e.preventDefault();
                 var encounterId = $(this).data('id');
                 // Show confirmation dialog
-                if (confirm('Are you sure you want to delete this patient?')) {
-                    // Make API call to delete patient
+                if (confirm('Are you sure you want to delete this encounter?')) {
+                    // Make API call to delete encounter
                     $.ajax({
                         url: '/Encounters/Delete?id=' + encounterId,
                         type: 'GET',

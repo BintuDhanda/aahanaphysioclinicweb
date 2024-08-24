@@ -52,6 +52,7 @@ namespace AahanaClinic.Controllers
                           From = e.From,
                           To = e.To,
                           MedicalHistory = e.MedicalHistory,
+                          Status = e.Status,
                           Id = e.Id
                       })
                 .Where(e => e.Timestamp.Year == year &&
@@ -219,7 +220,50 @@ namespace AahanaClinic.Controllers
             }
             return View(payload);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateStatus([FromForm] EncounterViewModel payload)
+        {
+            var encounter = await _context.Encounters.FindAsync(payload.Id);
+            if (encounter == null)
+            {
+                return NotFound();
+            }
 
+            if (encounter.Status < 2)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    // If user is not authenticated, handle accordingly (e.g., redirect to login page)
+                    return RedirectToAction("Index", "Account"); // Adjust to your application's login action
+                }
+
+                encounter.Status = payload.Status;
+
+                if (payload.Status == 2)
+                {
+                    var transaction = new VisitTransaction()
+                    {
+                        EncounterId = encounter.Id,
+                        CreatedBy = user.Id,
+                    };
+                    _context.Add(transaction);
+                    await _context.SaveChangesAsync();
+                    var patient = await _context.Patients.FindAsync(encounter.PatientId);
+                    if (patient != null)
+                    {
+                        patient.VisitBalance -= 1;
+                        _context.Update(patient);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                _context.Update(encounter);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
         // GET: Encounters/Delete/5
         public async Task<IActionResult> Delete([FromQuery] int? id)
         {

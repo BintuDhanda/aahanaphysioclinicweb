@@ -16,15 +16,20 @@ namespace AahanaClinic.Database
         {
             base.OnModelCreating(builder);
             builder.Entity<Patient>().HasKey(e => new { e.Id });
+            builder.Entity<Settings>()
+            .HasOne(s => s.SignatureFile)
+            .WithMany().HasForeignKey(s => s.Signature)
+            .OnDelete(DeleteBehavior.NoAction);
             Seeder.Initializer(builder);
-
         }
-
         public DbSet<BookAnAppointment> Appointments { get; set; }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         public DbSet<Encounter> Encounters { get; set; }
+        public DbSet<VisitTransaction> VisitTransactions { get; set; }
         public DbSet<LabReport> LabReports { get; set; }
         public DbSet<FileStorage> FileStorage { get; set; }
+        public DbSet<Settings> Settings { get; set; }
 
     }
 }

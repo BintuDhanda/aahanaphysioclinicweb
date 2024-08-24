@@ -1,0 +1,117 @@
+﻿@model PaymentViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Updated styles for smaller font size */
+    .form-container {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin: 0 auto;
+        max-width: 900px; /* Increased max-width for two-column layout */
+        background-color: #f8f9fa;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        font-size: 13px; /* Reduced font size */
+        border-radius: 3px;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 3px;
+    }
+
+    .text-danger {
+        font-size: 12px;
+    }
+
+    /* Adjusted style for search button */
+    .input-group {
+        position: relative;
+    }
+
+    .input-group-append {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .btn-outline-secondary {
+        margin-left: -35px; /* Adjust this value based on your layout */
+    }
+
+    .smiley {
+        font-size: 32px; /* Larger smiley size */
+    }
+</style>
+
+<div class="container" style="margin-top:10px;">
+    <h1 class="textGradient text-center" style="font-size: 24px;">Add Encounter</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="form-container">
+                <form asp-action="Edit" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="mb-3">
+                        <div>
+                            <label asp-for="PatientId" class="form-label textGradient">Patient</label>
+                        </div>
+                        <label id="patientDetailsLabel">@(Model.Patient)</label>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" id="patientId" asp-for="PatientId" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Mode" class="control-label">Mode</label>
+                        <select asp-for="Mode" class="form-control" required>
+                            <option value="">--Select--</option>
+                            <option value="Google Pay">Google Pay</option>
+                            <option value="Phonepe">Phonepe</option>
+                            <option value="Paytm">Paytm</option>
+                            <option value="Net Banking">Net Banking</option>
+                            <option value="Cash">Cash</option>
+                        </select>
+                        <span asp-validation-for="Mode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TransactionId" class="control-label">Transaction Id</label>
+                        <input asp-for="TransactionId" class="form-control" />
+                        <span asp-validation-for="TransactionId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Date" class="control-label">Payment Date</label>
+                        <input asp-for="Date" type="date" class="form-control" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Visits" class="control-label">Visits</label>
+                        <input asp-for="Visits" class="form-control" />
+                        <span asp-validation-for="Visits" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button type="submit" id="addButton" class="btn btn-primary"><i class="fas fa-plus"></i> Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

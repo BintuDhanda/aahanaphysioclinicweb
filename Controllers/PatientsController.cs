@@ -156,5 +156,25 @@ namespace AahanaClinic.Controllers
 
             return Ok("Deleted");
         }
+        public async Task<IActionResult> PatientDetails([FromQuery] string? mobileNo)
+        {
+            try
+            {
+                var patient = await _context.Patients.FirstOrDefaultAsync(m => m.MobileNumber == mobileNo);
+                if (patient != null)
+                {
+                    return Ok(patient);
+                }
+                else
+                {
+                    return StatusCode(204);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500);
+            }
+        }
     }
 }

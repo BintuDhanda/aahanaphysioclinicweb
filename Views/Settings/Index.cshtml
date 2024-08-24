@@ -1,0 +1,65 @@
+﻿@model SettingsViewModel
+
+@{
+    ViewData["Title"] = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin:10px">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header textGradient">
+                    <h4>Settings</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <!-- File input for Logo File -->
+                        <div class="form-group">
+                            <label class="control-label">Upload Logo File:</label><br />
+                            @if (Model.LogoUrl != null)
+                            {
+                                <input type="file" name="Logo" class="form-control" />
+                                <img src="@Model.LogoUrl" class="mt-2" width="150" />
+                            }
+                            else
+                            {
+                                <input type="file" name="Logo" class="form-control" required="required" />
+
+                            }
+                            <span asp-validation-for="Logo" class="text-danger"></span>
+                        </div>
+                        <!-- File input for Logo File -->
+                        <div class="form-group mt-2">
+                            <label class="control-label">Upload Signature File:</label><br />
+                            <span asp-validation-for="Signature" class="text-danger"></span>
+                            @if (Model.SignatureUrl != null)
+                            {
+                                <input type="file" name="Signature" class="form-control" />
+                                <img src="@Model.SignatureUrl" class="mt-2" width="150" />
+                            }
+                            else
+                            {
+                                <input type="file" name="Signature" class="form-control" required="required" />
+                            }
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label class="control-label">Address</label>
+                            <input asp-for="Address" class="form-control" required />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,459 +1,491 @@
 {
   "Files": [
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\AahanaClinic.bundle.scp.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\AahanaClinic.bundle.scp.css",
       "PackagePath": "staticwebassets\\AahanaClinic.bundle.scp.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\09b2069a-b068-4cd1-ba39-45347d56fda8.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\09b2069a-b068-4cd1-ba39-45347d56fda8.jpg",
       "PackagePath": "staticwebassets\\FileStorage\\09b2069a-b068-4cd1-ba39-45347d56fda8.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\14f1aa94-d5fe-422c-a8f2-211fca1d9b88.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\14f1aa94-d5fe-422c-a8f2-211fca1d9b88.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\14f1aa94-d5fe-422c-a8f2-211fca1d9b88.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\16513186-152b-4b73-88c7-30a61bd194ee.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\16513186-152b-4b73-88c7-30a61bd194ee.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\16513186-152b-4b73-88c7-30a61bd194ee.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\21f58ded-a554-4437-b7a4-656402250e2c.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\1858bd03-89da-4d23-8105-58ec39f8b18b.PNG",
+      "PackagePath": "staticwebassets\\FileStorage\\1858bd03-89da-4d23-8105-58ec39f8b18b.PNG"
+    },
+    {
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\21f58ded-a554-4437-b7a4-656402250e2c.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\21f58ded-a554-4437-b7a4-656402250e2c.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\3f2abf8f-7c05-4601-ba43-4c44ae6bddb2.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\2f4e8310-9f2a-4649-bb67-cb0c22fb217d.jpg",
+      "PackagePath": "staticwebassets\\FileStorage\\2f4e8310-9f2a-4649-bb67-cb0c22fb217d.jpg"
+    },
+    {
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\3f2abf8f-7c05-4601-ba43-4c44ae6bddb2.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\3f2abf8f-7c05-4601-ba43-4c44ae6bddb2.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\4e5e312f-9685-4e7b-8bed-4757aa0c9ca3.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\4e5e312f-9685-4e7b-8bed-4757aa0c9ca3.jpg",
       "PackagePath": "staticwebassets\\FileStorage\\4e5e312f-9685-4e7b-8bed-4757aa0c9ca3.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\4e7f9cd6-9803-4e68-875b-89abb9085e14.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\4e7f9cd6-9803-4e68-875b-89abb9085e14.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\4e7f9cd6-9803-4e68-875b-89abb9085e14.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\5e7dfbe1-2154-47b7-85cf-799257a63881.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\5e7dfbe1-2154-47b7-85cf-799257a63881.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\5e7dfbe1-2154-47b7-85cf-799257a63881.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\66ae02d1-549c-4889-ac73-ef69919b0c6b.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\66ae02d1-549c-4889-ac73-ef69919b0c6b.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\66ae02d1-549c-4889-ac73-ef69919b0c6b.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\9e73cb52-cff1-471b-8884-db577d96da70.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\696a6d5f-76ec-4562-b988-69704146ec79.pdf",
+      "PackagePath": "staticwebassets\\FileStorage\\696a6d5f-76ec-4562-b988-69704146ec79.pdf"
+    },
+    {
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\6db8e354-1b15-4d92-af63-784e99a3e616.jpg",
+      "PackagePath": "staticwebassets\\FileStorage\\6db8e354-1b15-4d92-af63-784e99a3e616.jpg"
+    },
+    {
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\9e73cb52-cff1-471b-8884-db577d96da70.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\9e73cb52-cff1-471b-8884-db577d96da70.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\c24aa13f-4ba7-4653-b10c-6b98648d4b7a.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\a92f6863-334b-4273-8a01-f770a483167c.PNG",
+      "PackagePath": "staticwebassets\\FileStorage\\a92f6863-334b-4273-8a01-f770a483167c.PNG"
+    },
+    {
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\ae5c0b49-e1cc-40b4-9537-e2abc6e43db6.jpg",
+      "PackagePath": "staticwebassets\\FileStorage\\ae5c0b49-e1cc-40b4-9537-e2abc6e43db6.jpg"
+    },
+    {
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\b93d5982-e4ec-432d-bcb9-6479352ecab5.jpg",
+      "PackagePath": "staticwebassets\\FileStorage\\b93d5982-e4ec-432d-bcb9-6479352ecab5.jpg"
+    },
+    {
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\c24aa13f-4ba7-4653-b10c-6b98648d4b7a.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\c24aa13f-4ba7-4653-b10c-6b98648d4b7a.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\c96fae32-abba-4357-8022-71d6d942ddaf.html",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\c96fae32-abba-4357-8022-71d6d942ddaf.html",
       "PackagePath": "staticwebassets\\FileStorage\\c96fae32-abba-4357-8022-71d6d942ddaf.html"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\caf0b594-51ea-438f-8309-d973fd35004f.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\caf0b594-51ea-438f-8309-d973fd35004f.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\caf0b594-51ea-438f-8309-d973fd35004f.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\d4072582-a525-43a2-8cc9-bd0277768b9d.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\cfeea552-ca2f-4e05-b0e5-65b336d3815b.jpg",
+      "PackagePath": "staticwebassets\\FileStorage\\cfeea552-ca2f-4e05-b0e5-65b336d3815b.jpg"
+    },
+    {
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\d4072582-a525-43a2-8cc9-bd0277768b9d.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\d4072582-a525-43a2-8cc9-bd0277768b9d.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\FileStorage\\d9edc77e-5e6d-4f77-b663-8f3ef7e4a831.pdf",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\FileStorage\\d9edc77e-5e6d-4f77-b663-8f3ef7e4a831.pdf",
       "PackagePath": "staticwebassets\\FileStorage\\d9edc77e-5e6d-4f77-b663-8f3ef7e4a831.pdf"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\5896296.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\5896296.png",
       "PackagePath": "staticwebassets\\assets\\5896296.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Aahana Logo (1).svg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Aahana Logo (1).svg",
       "PackagePath": "staticwebassets\\assets\\Aahana Logo (1).svg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Aahana Logo (2).svg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Aahana Logo (2).svg",
       "PackagePath": "staticwebassets\\assets\\Aahana Logo (2).svg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Aahana Logo (3).png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Aahana Logo (3).png",
       "PackagePath": "staticwebassets\\assets\\Aahana Logo (3).png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Aahana Logo.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Aahana Logo.jpg",
       "PackagePath": "staticwebassets\\assets\\Aahana Logo.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Aahana Logo.svg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Aahana Logo.svg",
       "PackagePath": "staticwebassets\\assets\\Aahana Logo.svg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\AahanaLogo (1).jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\AahanaLogo (1).jpg",
       "PackagePath": "staticwebassets\\assets\\AahanaLogo (1).jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\AahanaLogo (2).jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\AahanaLogo (2).jpg",
       "PackagePath": "staticwebassets\\assets\\AahanaLogo (2).jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\AahanaLogo.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\AahanaLogo.png",
       "PackagePath": "staticwebassets\\assets\\AahanaLogo.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Cerebral Palsysvg.svg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Cerebral Palsysvg.svg",
       "PackagePath": "staticwebassets\\assets\\Cerebral Palsysvg.svg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Cervical Spondylosis.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Cervical Spondylosis.jpg",
       "PackagePath": "staticwebassets\\assets\\Cervical Spondylosis.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\DR-1024x1024.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\DR-1024x1024.jpg",
       "PackagePath": "staticwebassets\\assets\\DR-1024x1024.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Frozen Shoulder.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Frozen Shoulder.png",
       "PackagePath": "staticwebassets\\assets\\Frozen Shoulder.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Knne Replacement Rehabilitation.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Knne Replacement Rehabilitation.jpg",
       "PackagePath": "staticwebassets\\assets\\Knne Replacement Rehabilitation.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Low back Pain.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Low back Pain.png",
       "PackagePath": "staticwebassets\\assets\\Low back Pain.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Osteoarthritism.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Osteoarthritism.png",
       "PackagePath": "staticwebassets\\assets\\Osteoarthritism.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Paralysiss.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Paralysiss.png",
       "PackagePath": "staticwebassets\\assets\\Paralysiss.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Post Fractur.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Post Fractur.png",
       "PackagePath": "staticwebassets\\assets\\Post Fractur.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\Sports_injuries.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\Sports_injuries.png",
       "PackagePath": "staticwebassets\\assets\\Sports_injuries.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\avtarfemale.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\avtarfemale.png",
       "PackagePath": "staticwebassets\\assets\\avtarfemale.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\avtarmale.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\avtarmale.png",
       "PackagePath": "staticwebassets\\assets\\avtarmale.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\bg.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\bg.jpg",
       "PackagePath": "staticwebassets\\assets\\bg.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\bg_bred.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\bg_bred.jpg",
       "PackagePath": "staticwebassets\\assets\\bg_bred.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\breadcrum.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\breadcrum.png",
       "PackagePath": "staticwebassets\\assets\\breadcrum.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\doctor.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\doctor.png",
       "PackagePath": "staticwebassets\\assets\\doctor.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\footerlogo.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\footerlogo.png",
       "PackagePath": "staticwebassets\\assets\\footerlogo.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\neck-back-pain.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\neck-back-pain.png",
       "PackagePath": "staticwebassets\\assets\\neck-back-pain.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\slider1.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\slider1.png",
       "PackagePath": "staticwebassets\\assets\\slider1.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\slider2.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\slider2.png",
       "PackagePath": "staticwebassets\\assets\\slider2.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\slider3.png",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\slider3.png",
       "PackagePath": "staticwebassets\\assets\\slider3.png"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\svg\\arrow.svg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\svg\\arrow.svg",
       "PackagePath": "staticwebassets\\assets\\svg\\arrow.svg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt1.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\virtual-tour\\vt1.jpg",
       "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt1.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt2.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\virtual-tour\\vt2.jpg",
       "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt2.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt3.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\virtual-tour\\vt3.jpg",
       "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt3.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt4.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\virtual-tour\\vt4.jpg",
       "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt4.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt5.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\virtual-tour\\vt5.jpg",
       "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt5.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt6.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\virtual-tour\\vt6.jpg",
       "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt6.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\assets\\virtual-tour\\vt7.jpg",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\assets\\virtual-tour\\vt7.jpg",
       "PackagePath": "staticwebassets\\assets\\virtual-tour\\vt7.jpg"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\css\\site.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\favicon.ico",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\js\\site.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "E:\\Balwant Dhanda\\AahanaClinic\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

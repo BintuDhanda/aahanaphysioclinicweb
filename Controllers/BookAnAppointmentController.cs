@@ -19,10 +19,17 @@ namespace AahanaClinic.Controllers
         [HttpPost]
         public async Task<IActionResult> Index([FromForm] BookAnAppointment payload)
         {
-            _context.Appointments.Add(payload);
-            await _context.SaveChangesAsync();
-            ModelState.Clear();
-            ModelState.AddModelError("", "Appointment booked successfully");
+            if (ModelState.IsValid)
+            {
+                _context.Appointments.Add(payload);
+                await _context.SaveChangesAsync();
+                ModelState.Clear();
+                ModelState.AddModelError("", "Appointment booked successfully");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Please fill all details");
+            }
             return View();
         }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\AahanaClinic.csproj": {}
+    "E:\\Balwant Dhanda\\AahanaClinic\\AahanaClinic.csproj": {}
   },
   "projects": {
-    "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\AahanaClinic.csproj": {
+    "E:\\Balwant Dhanda\\AahanaClinic\\AahanaClinic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\AahanaClinic.csproj",
+        "projectUniqueName": "E:\\Balwant Dhanda\\AahanaClinic\\AahanaClinic.csproj",
         "projectName": "AahanaClinic",
-        "projectPath": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\AahanaClinic.csproj",
+        "projectPath": "E:\\Balwant Dhanda\\AahanaClinic\\AahanaClinic.csproj",
         "packagesPath": "C:\\Users\\dharm\\.nuget\\packages\\",
-        "outputPath": "E:\\Balwant Dhanda\\aahanaphysioclinicweb\\aahanaphysioclinic\\obj\\",
+        "outputPath": "E:\\Balwant Dhanda\\AahanaClinic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,13 +68,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.27, )"
+              "version": "[6.0.33, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.33, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.27, )"
+              "version": "[6.0.33, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -100,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

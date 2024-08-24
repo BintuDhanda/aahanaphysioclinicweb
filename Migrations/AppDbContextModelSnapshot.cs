@@ -17,7 +17,7 @@ namespace AahanaClinic.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.27")
+                .HasAnnotation("ProductVersion", "6.0.33")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -91,15 +91,15 @@ namespace AahanaClinic.Migrations
                         {
                             Id = "61cc032a-985c-44c9-8aeb-8d2dc5d9626a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8cefc4db-ee3d-4c17-a313-0142cd66ab32",
+                            ConcurrencyStamp = "684b7481-760a-459b-87c2-f7867a63620e",
                             Email = "drannupt@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "DRANNUPT@GMAIL.COM",
                             NormalizedUserName = "DRANNUPT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENI4ZZIqdVO9zRSXTMXOEXNsN71TnQmkmiGM955uBe+0xcLFLtrPkDk37HmSOTJZMQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMPK6i7kNWkW4Sb7Ryy3Pq8i6lRCWk2eAhE+LK3ZoRHmAaXFhGnJNpR+VtTv/RKIeA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b02fdee6-a77a-434d-b537-41d7d31b98ff",
+                            SecurityStamp = "3ea3f490-2e86-43c8-8228-a5ad1c7b380d",
                             TwoFactorEnabled = false,
                             UserName = "drannupt@gmail.com"
                         });
@@ -113,13 +113,15 @@ namespace AahanaClinic.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime?>("AppointmentDate")
+                    b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("MobileNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -158,6 +160,9 @@ namespace AahanaClinic.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Timestamp")
@@ -283,6 +288,103 @@ namespace AahanaClinic.Migrations
                     b.ToTable("Patients");
                 });
 
+            modelBuilder.Entity("AahanaClinic.Models.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Mode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TransactionId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Visits")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("Payments");
+                });
+
+            modelBuilder.Entity("AahanaClinic.Models.Settings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Logo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Signature")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Logo");
+
+                    b.HasIndex("Signature");
+
+                    b.ToTable("Settings");
+                });
+
+            modelBuilder.Entity("AahanaClinic.Models.VisitTransaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EncounterId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EncounterId");
+
+                    b.ToTable("VisitTransactions");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -313,7 +415,7 @@ namespace AahanaClinic.Migrations
                         new
                         {
                             Id = "b241f5b3-1bdf-4f41-9cef-f7c78664bc80",
-                            ConcurrencyStamp = "96ba5729-d4d7-44a6-83e0-9cd612f126cb",
+                            ConcurrencyStamp = "674f53ce-a0f3-4fb8-9ce6-a8f591629a3d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -475,6 +577,47 @@ namespace AahanaClinic.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("AahanaClinic.Models.Payment", b =>
+                {
+                    b.HasOne("AahanaClinic.Models.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("AahanaClinic.Models.Settings", b =>
+                {
+                    b.HasOne("AahanaClinic.Models.FileStorage", "LogoFile")
+                        .WithMany()
+                        .HasForeignKey("Logo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AahanaClinic.Models.FileStorage", "SignatureFile")
+                        .WithMany()
+                        .HasForeignKey("Signature")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("LogoFile");
+
+                    b.Navigation("SignatureFile");
+                });
+
+            modelBuilder.Entity("AahanaClinic.Models.VisitTransaction", b =>
+                {
+                    b.HasOne("AahanaClinic.Models.Encounter", "Encounter")
+                        .WithMany()
+                        .HasForeignKey("EncounterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Encounter");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AahanaClinic.ViewModels
 {
+
     public class EncounterViewModel
     {
         public int Id { get; set; }
@@ -36,5 +37,6 @@ namespace AahanaClinic.ViewModels
         public bool Pregnancy { get; set; }
         public bool MetalImplant { get; set; }
         public string? Patient { get; set; }
+        public int Status { get; set; }
     }
 }
