@@ -4,6 +4,7 @@ using AahanaClinic.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AahanaClinic.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240828001324_patient-soft-delete")]
+    partial class patientsoftdelete
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,15 +93,15 @@ namespace AahanaClinic.Migrations
                         {
                             Id = "61cc032a-985c-44c9-8aeb-8d2dc5d9626a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8c77c4d9-7481-4678-9687-e18415c09d6a",
+                            ConcurrencyStamp = "a214d11f-a9c3-4a29-8fb6-03b9f3b1aa23",
                             Email = "drannupt@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "DRANNUPT@GMAIL.COM",
                             NormalizedUserName = "DRANNUPT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEbyclEBtRHkkTti8nz1wM+gd7uRBxjLPyyNOLUoOLC4oVMqqcCvDMalmq596op6OA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPkY/SW1naZNipKA58Me/OhSKrT1dbJrnjlBU9p/0PPdX8mvnHSG+NWLhcAvpSzRuw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e754fa54-50a0-41a3-a7f8-f6b2b344ae4e",
+                            SecurityStamp = "262a8049-b6eb-44aa-aa90-e7f31fd29060",
                             TwoFactorEnabled = false,
                             UserName = "drannupt@gmail.com"
                         });
@@ -299,9 +301,6 @@ namespace AahanaClinic.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -421,7 +420,7 @@ namespace AahanaClinic.Migrations
                         new
                         {
                             Id = "b241f5b3-1bdf-4f41-9cef-f7c78664bc80",
-                            ConcurrencyStamp = "ec8f9a39-bbe8-4ee5-98fd-790c0352989a",
+                            ConcurrencyStamp = "fdc0be12-6568-4d41-938d-b5fc98ae9b63",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

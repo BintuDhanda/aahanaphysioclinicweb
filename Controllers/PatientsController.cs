@@ -34,7 +34,11 @@ namespace AahanaClinic.Controllers
             }
 
             // Filter data based on provided year and month
-            IQueryable<Patient> query = _context.Patients.Where(e => e.Timestamp.Year == year && e.Timestamp.Month == month);
+            IQueryable<Patient> query = _context.Patients.Where(e => e.Timestamp.Year == year && e.Timestamp.Month == month && e.IsDeleted == false);
+            if (TempData["Error"] != null)
+            {
+                ModelState.AddModelError("", TempData["Error"]?.ToString() ?? "");
+            }
             return View(await query.ToListAsync());
         }
 
@@ -145,7 +149,8 @@ namespace AahanaClinic.Controllers
             var patient = await _context.Patients.FindAsync(id);
             if (patient != null)
             {
-                _context.Patients.Remove(patient);
+                patient.IsDeleted = true;
+                _context.Patients.Update(patient);
                 await _context.SaveChangesAsync();
             }
 
@@ -160,10 +165,16 @@ namespace AahanaClinic.Controllers
         {
             try
             {
-                var patient = await _context.Patients.FirstOrDefaultAsync(m => m.MobileNumber == mobileNo);
+                var patient = await _context.Patients.FirstOrDefaultAsync(m => m.MobileNumber == mobileNo && m.IsDeleted == false);
                 if (patient != null)
                 {
-                    return Ok(patient);
+                    var finalResponse = patient.Adapt<PatientViewModel>();
+                    var payment = await _context.Payments.Where(x => x.PatientId == patient.Id).OrderByDescending(o => o.Id).FirstOrDefaultAsync();
+                    if (payment != null)
+                    {
+                        finalResponse.Fees = Math.Round(payment.Amount / payment.Visits, 2);
+                    }
+                    return Ok(finalResponse);
                 }
                 else
                 {

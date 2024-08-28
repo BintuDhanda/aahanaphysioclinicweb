@@ -21,7 +21,7 @@
             <a href="/Payments/Create">Add New Payment</a>
         </div>
     </div>
-
+    <div asp-validation-summary="All" class="text-danger"></div>
     <div class="table-responsive">
         <table id="encountersTable" class="table table-bordered table-striped table-responsive">
             <thead class="thead-dark">
@@ -29,6 +29,7 @@
                     <th>Patient</th>
                     <th>Date</th>
                     <th>Mode</th>
+                    <th>Amount</th>
                     <th>Visits</th>
                     <th>Transaction Id</th>
                     <th>Action</th>
@@ -41,6 +42,7 @@
                         <td>@item.Patient?.Name (@item.Patient.MobileNumber)</td>
                         <td>@item.Date.ToString().Substring(0, 10)</td>
                         <td>@item.Mode</td>
+                        <td>@item.Amount</td>
                         <td>@item.Visits</td>
                         <td>@(item.TransactionId ?? "NA")</td>
                         <td>

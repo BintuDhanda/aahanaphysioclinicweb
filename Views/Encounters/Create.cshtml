@@ -301,7 +301,7 @@
 
                     <div class="mb-3">
                         <label asp-for="Fees" class="form-label textGradient">Fees</label>
-                        <input asp-for="Fees" name="Fees" class="form-control" />
+                        <input asp-for="Fees" name="Fees" class="form-control" readonly />
                         <span asp-validation-for="Fees" class="text-danger"></span>
                     </div>
 
@@ -322,7 +322,7 @@
         var patientDetailsLabel = document.getElementById("patientDetailsLabel");
         patientDetailsLabel.innerText = "Searching for patient...";
         document.getElementById("addButton").disabled = true; // Disable add button
-        fetch(`PatientDetails?mobileNo=${patientSearchInput}`)
+        fetch(`/Patients/PatientDetails?mobileNo=${patientSearchInput}`)
             .then(response => {
                 if (response.status === 204) {
                     patientDetailsLabel.innerText = "Patient not found.";
@@ -333,6 +333,7 @@
             .then(data => {
                 patientDetailsLabel.innerText = `Patient Name: ${data.name}, Mobile Number: ${data.mobileNumber}`;
                 document.getElementById("patientId").value = data.id; // Assuming id is the property for PatientId
+                document.getElementById("Fees").value = data.fees; 
                 document.getElementById("addButton").disabled = false; // Enable add button
             })
             .catch(error => {

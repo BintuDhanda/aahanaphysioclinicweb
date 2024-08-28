@@ -9,6 +9,7 @@ namespace AahanaClinic.ViewModels
         public int PatientId { get; set; }
         public string? Patient { get; set; }
         public string Mode { get; set; }
+        public decimal Amount { get; set; }
         public string? TransactionId { get; set; }
         public DateTime Date { get; set; }
         public int Visits { get; set; }

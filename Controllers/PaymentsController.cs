@@ -24,12 +24,16 @@ namespace AahanaClinic.Controllers
         // GET: PaymentsController
         public async Task<ActionResult> Index(int id)
         {
-            var query = _context.Payments.Include(i => i.Patient).AsQueryable();
-            if(id > 0)
+            var query = _context.Payments.Include(i => i.Patient).Where(x => x.Patient.IsDeleted == false).AsQueryable();
+            if (id > 0)
             {
                 query.Where(g => g.PatientId == id);
             }
             var payments = await query.ToListAsync();
+            if (TempData["Error"] != null)
+            {
+                ModelState.AddModelError("", TempData["Error"]?.ToString() ?? "");
+            }
             return View(payments);
         }
 
@@ -68,19 +72,23 @@ namespace AahanaClinic.Controllers
                 {
                     throw new Exception("Invalid request");
                 }
+                var patient = await _context.Patients.FindAsync(payload.PatientId);
+                if (patient != null && patient.VisitBalance > 0)
+                {
+                    throw new Exception("Visits already available");
+                }
                 var payment = payload.Adapt<Payment>();
                 var user = await _userManager.GetUserAsync(User);
                 payment.CreatedBy = user.Id;
                 _context.Add(payment);
                 await _context.SaveChangesAsync();
                 await PatientVisits(payment.PatientId, payment.Visits);
-                return RedirectToAction(nameof(Index), "Patients");
             }
             catch (Exception e)
             {
-                ModelState.AddModelError("", e.Message);
-                return View();
+                TempData["Error"] = e.Message;
             }
+            return RedirectToAction(nameof(Index), "Patients");
         }
 
         // GET: PaymentsController/Edit/5
@@ -108,8 +116,10 @@ namespace AahanaClinic.Controllers
                     throw new Exception("Not found");
                 }
                 var user = await _userManager.GetUserAsync(User);
+                payment.Amount = payload.Amount;
                 payment.TransactionId = payload.TransactionId;
                 payment.Mode = payload.Mode;
+                payment.Visits = payload.Visits;
                 payment.Date = payload.Date;
                 payment.CreatedBy = user.Id;
                 _context.Update(payment);

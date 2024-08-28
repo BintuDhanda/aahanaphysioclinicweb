@@ -25,8 +25,8 @@ namespace AahanaClinic.Controllers
         // GET: LabReports
         public async Task<IActionResult> Index([FromQuery] int EncounterId = 0)
         {
-            var query = _context.LabReports.Include(i => i.File).Include(i => i.Encounter).ThenInclude(i => i.Patient).AsQueryable();
-            if(EncounterId != 0)
+            var query = _context.LabReports.Include(i => i.File).Include(i => i.Encounter).ThenInclude(i => i.Patient).Where(x => x.Encounter.Patient.IsDeleted == false).AsQueryable();
+            if (EncounterId != 0)
             {
                 query = query.Where(l => l.EncounterId == EncounterId);
             }

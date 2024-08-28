@@ -18,5 +18,6 @@ namespace AahanaClinic.Models
 
         [ForeignKey(nameof(CreatedBy))]
         public ApplicationUser User { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

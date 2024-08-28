@@ -36,7 +36,7 @@ namespace AahanaClinic.Controllers
 
             // Filter data based on provided year and month
             var encounters = await _context.Encounters
-                .Join(_context.Patients,
+                .Join(_context.Patients.Where(g=>g.IsDeleted == false),
                       e => e.PatientId,
                       p => p.Id,
                       (e, p) => new Encounter
@@ -287,27 +287,6 @@ namespace AahanaClinic.Controllers
         private bool EncounterExists(int id)
         {
             return (_context.Encounters?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
-
-        public async Task<IActionResult> PatientDetails([FromQuery] string? mobileNo)
-        {
-            try
-            {
-                var patient = await _context.Patients.FirstOrDefaultAsync(m => m.MobileNumber == mobileNo);
-                if (patient != null)
-                {
-                    return Ok(patient);
-                }
-                else
-                {
-                    return StatusCode(204);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return StatusCode(500);
-            }
         }
     }
 }
