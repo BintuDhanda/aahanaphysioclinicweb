@@ -1,8 +1,6 @@
 using AahanaClinic;
 using AahanaClinic.Database;
 using AahanaClinic.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -26,7 +24,12 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.ExpireTimeSpan = TimeSpan.FromDays(30); // Adjust expiration time as needed
     options.SlidingExpiration = true;
 });
-
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromDays(1);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;    
+});
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account";
@@ -52,6 +55,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
