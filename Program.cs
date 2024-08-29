@@ -26,6 +26,12 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.ExpireTimeSpan = TimeSpan.FromDays(30); // Adjust expiration time as needed
     options.SlidingExpiration = true;
 });
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account";
+});
+
 Mappings.Register();
 
 var app = builder.Build();

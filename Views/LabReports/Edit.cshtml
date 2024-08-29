@@ -3,8 +3,6 @@
 @{
     ViewData["Title"] = "Edit Report";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    var encounterId = ViewContext.HttpContext.Request.Query["EncounterId"];
 }
 
 <div class="container" style="margin:10px">
@@ -19,7 +17,7 @@
                         @Html.AntiForgeryToken()
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input asp-for="Id" type="hidden" class="control-label" />
-                        <input asp-for="EncounterId" type="hidden" class="control-label" />
+                        <input asp-for="PatientId" type="hidden" class="control-label" />
                         <!-- File input for Lab Report File -->
                         <div class="form-group">
                             <label class="control-label">Upload Lab Report File:</label><br />

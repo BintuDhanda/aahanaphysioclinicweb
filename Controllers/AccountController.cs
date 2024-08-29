@@ -20,13 +20,17 @@ namespace AahanaClinic.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index([FromForm] Login model)
+        public async Task<IActionResult> Index([FromQuery] string? ReturnUrl, [FromForm] Login model)
         {
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    if(ReturnUrl != null)
+                    {
+                        return Redirect(ReturnUrl);
+                    }
                     // Redirect to a secure page after successful login
                     return RedirectToAction("Index","Dashboard");
                 }

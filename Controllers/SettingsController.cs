@@ -3,6 +3,7 @@ using AahanaClinic.Models;
 using AahanaClinic.Utilities;
 using AahanaClinic.ViewModels;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -10,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AahanaClinic.Controllers
 {
+    [Authorize]
     public class SettingsController : Controller
     {
         private readonly AppDbContext _context;

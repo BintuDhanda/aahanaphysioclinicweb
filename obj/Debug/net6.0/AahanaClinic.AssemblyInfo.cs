@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AahanaClinic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+911ac2654b9e466d74053ccccff2b041faedd559")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2ec4450449efc89d89c0dd14ba574debe2e98c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AahanaClinic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AahanaClinic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

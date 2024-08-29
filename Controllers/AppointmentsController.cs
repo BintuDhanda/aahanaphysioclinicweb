@@ -1,11 +1,13 @@
 ﻿using AahanaClinic.Database;
 using AahanaClinic.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AahanaClinic.Controllers
 {
+    [Authorize]
     public class AppointmentsController : Controller
     {
         private readonly AppDbContext _context;

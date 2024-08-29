@@ -79,6 +79,9 @@
                             <a asp-controller="Payments" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-credit-card"></i>
                             </a>
+                            <a href="/LabReports/?EncounterId=@item.Id" class="text-decoration-none">
+                                <i class="fas fa-file-medical"></i>
+                            </a>
                         </td>
                     </tr>
                 }

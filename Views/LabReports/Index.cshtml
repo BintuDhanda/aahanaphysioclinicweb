@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     // Get the query parameters
-    var encounterId = ViewContext.HttpContext.Request.Query["EncounterId"];
+    var PatientId = ViewContext.HttpContext.Request.Query["PatientId"];
 
 }
 
@@ -14,17 +14,17 @@
 
 <div class="container">
     <h1 class="textGradient text-center">Lab Reports</h1>
-    @if (!String.IsNullOrEmpty(encounterId))
+    @if (!String.IsNullOrEmpty(PatientId))
     {
         <p>
-            <a href="/LabReports/Create?EncounterId=@encounterId">Add New Report</a>
+            <a href="/LabReports/Create?PatientId=@PatientId">Add New Report</a>
         </p>
     }
     <table class="table" id="labReportTable">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Encounter.Patient)
+                    @Html.DisplayNameFor(model => model.Patient)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Type)
@@ -44,7 +44,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Encounter.Patient.Name) (@Html.DisplayFor(modelItem => item.Encounter.Patient.MobileNumber))
+                        @Html.DisplayFor(modelItem => item.Patient.Name) (@Html.DisplayFor(modelItem => item.Patient.MobileNumber))
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Type)

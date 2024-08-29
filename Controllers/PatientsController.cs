@@ -5,9 +5,11 @@ using AahanaClinic.Models;
 using Microsoft.AspNetCore.Identity;
 using AahanaClinic.ViewModels;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AahanaClinic.Controllers
 {
+    [Authorize]
     public class PatientsController : Controller
     {
         private readonly AppDbContext _context;

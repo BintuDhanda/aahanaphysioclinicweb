@@ -7,9 +7,11 @@ using AahanaClinic.Utilities;
 using AahanaClinic.ViewModels;
 using Mapster;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AahanaClinic.Controllers
 {
+    [Authorize]
     public class LabReportsController : Controller
     {
         private readonly AppDbContext _context;
@@ -23,12 +25,12 @@ namespace AahanaClinic.Controllers
         }
 
         // GET: LabReports
-        public async Task<IActionResult> Index([FromQuery] int EncounterId = 0)
+        public async Task<IActionResult> Index([FromQuery] int PatientId = 0)
         {
-            var query = _context.LabReports.Include(i => i.File).Include(i => i.Encounter).ThenInclude(i => i.Patient).Where(x => x.Encounter.Patient.IsDeleted == false).AsQueryable();
-            if (EncounterId != 0)
+            var query = _context.LabReports.Include(i => i.File).Include(i => i.Patient).Where(x => x.Patient.IsDeleted == false).AsQueryable();
+            if (PatientId != 0)
             {
-                query = query.Where(l => l.EncounterId == EncounterId);
+                query = query.Where(l => l.PatientId == PatientId);
             }
             var labReports = await query.ToListAsync();
             return View(labReports);
@@ -64,7 +66,7 @@ namespace AahanaClinic.Controllers
                 finalPayload.CreatedBy = user.Id;
                 _context.LabReports.Add(finalPayload);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "LabReports", new { EncounterId = payload.EncounterId });
+                return RedirectToAction("Index", "LabReports", new { PatientId = payload.PatientId });
             }
             return View(payload);
         }
@@ -82,7 +84,7 @@ namespace AahanaClinic.Controllers
             {
                 return NotFound();
             }
-            ViewData["EncounterId"] = new SelectList(_context.Encounters, "EncounterId", "EncounterId", labReport.EncounterId);
+            ViewData["PatientId"] = new SelectList(_context.Patients, "PatientId", "PatientId", labReport.PatientId);
             return View(labReport.Adapt<ReportViewModel>());
         }
 
@@ -113,7 +115,7 @@ namespace AahanaClinic.Controllers
                 labReport.Type = payload.Type;
                 _context.LabReports.Update(labReport);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "LabReports", new { EncounterId = labReport.EncounterId });
+                return RedirectToAction("Index", "LabReports", new { PatientId = labReport.PatientId });
             }
             return View(payload);
         }

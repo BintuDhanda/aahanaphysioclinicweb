@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create Report";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    var encounterId = ViewContext.HttpContext.Request.Query["EncounterId"];
+    var PatientId = ViewContext.HttpContext.Request.Query["PatientId"];
 }
 
 <div class="container" style="margin:10px">
@@ -18,7 +18,7 @@
                     <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                         @Html.AntiForgeryToken()
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input asp-for="EncounterId" name="EncounterId" type="hidden" class="control-label" value="@encounterId" />
+                        <input asp-for="PatientId" type="hidden" class="control-label" value="@PatientId" />
                         <!-- File input for Lab Report File -->
                         <div class="form-group">
                             <label class="control-label">Upload Lab Report File:</label><br />

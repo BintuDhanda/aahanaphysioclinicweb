@@ -8,9 +8,9 @@ namespace AahanaClinic.Models
         public int FileId { get; set; }
         [ForeignKey(nameof(FileId))]
         public FileStorage File { get; set; }
-        public int EncounterId { get; set; }
-        [ForeignKey(nameof(EncounterId))]
-        public Encounter Encounter { get; set; }
+        public int PatientId { get; set; }
+        [ForeignKey(nameof(PatientId))]
+        public Patient Patient { get; set; }
         public string Type { get; set; }
     }
 }

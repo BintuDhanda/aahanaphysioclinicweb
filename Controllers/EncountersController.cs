@@ -7,9 +7,11 @@ using AahanaClinic.Database;
 using AahanaClinic.Models;
 using AahanaClinic.ViewModels;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AahanaClinic.Controllers
 {
+    [Authorize]
     public class EncountersController : Controller
     {
         private readonly AppDbContext _context;

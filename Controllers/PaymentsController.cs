@@ -2,6 +2,7 @@
 using AahanaClinic.Models;
 using AahanaClinic.ViewModels;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using System.Diagnostics.Metrics;
 
 namespace AahanaClinic.Controllers
 {
+    [Authorize]
     public class PaymentsController : Controller
     {
         private readonly AppDbContext _context;
