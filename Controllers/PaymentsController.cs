@@ -27,10 +27,7 @@ namespace AahanaClinic.Controllers
         public async Task<ActionResult> Index(int id)
         {
             var query = _context.Payments.Include(i => i.Patient).Where(x => x.Patient.IsDeleted == false).AsQueryable();
-            if (id > 0)
-            {
-                query.Where(g => g.PatientId == id);
-            }
+            query.Where(g => g.PatientId == id);
             var payments = await query.ToListAsync();
             if (TempData["Error"] != null)
             {

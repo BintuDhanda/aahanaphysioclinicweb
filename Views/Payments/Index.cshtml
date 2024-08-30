@@ -46,15 +46,15 @@
                         <td>@item.Visits</td>
                         <td>@(item.TransactionId ?? "NA")</td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
+                            @* <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-edit"></i>
-                            </a>
+                            </a> *@
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-info-circle"></i>
                             </a>
-                            <a href="#" class="text-decoration-none delete-btn" data-id="@item.Id">
+                           @*  <a href="#" class="text-decoration-none delete-btn" data-id="@item.Id">
                                 <i class="fas fa-trash-alt text-danger"></i>
-                            </a>
+                            </a> *@
                         </td>
                     </tr>
                 }

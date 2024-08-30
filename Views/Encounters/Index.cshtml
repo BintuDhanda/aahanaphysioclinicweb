@@ -19,23 +19,37 @@
     <div class="row mb-3">
         <div class="col-sm-6">
             <label for="year" class="form-label">Select Year:</label>
-            <select id="year" class="form-select">
+            <select id="year" default-value="@yearParam" class="form-select">
                 <option value="">- Select Year -</option>
                 <!-- Populate with available years -->
                 @for (int year = DateTime.Now.Year; year >= 2020; year--)
                 {
-                    <option value="@year" selected=@(year.ToString() == yearParam ? "selected" : "")>@year</option>
+                    @if (year.ToString() == yearParam)
+                    {
+                        <option value="@year" selected>@year</option>
+                    }
+                    else
+                    {
+                        <option value="@year">@year</option>
+                    }
                 }
             </select>
         </div>
         <div class="col-sm-6">
             <label for="month" class="form-label">Select Month:</label>
-            <select id="month" class="form-select">
+            <select id="month" default-value="@yearParam" class="form-select">
                 <option value="">- Select Month -</option>
                 <!-- Populate with available months -->
                 @for (int month = 1; month <= 12; month++)
                 {
-                    <option value="@month" selected=@(month.ToString() == monthParam ? "selected" : "")>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)</option>
+                    @if (month.ToString() == monthParam)
+                    {
+                        <option value="@month" selected>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)</option>
+                    }
+                    else
+                    {
+                        <option value="@month">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)</option>
+                    }
                 }
             </select>
         </div>

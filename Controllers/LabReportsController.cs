@@ -28,10 +28,7 @@ namespace AahanaClinic.Controllers
         public async Task<IActionResult> Index([FromQuery] int PatientId = 0)
         {
             var query = _context.LabReports.Include(i => i.File).Include(i => i.Patient).Where(x => x.Patient.IsDeleted == false).AsQueryable();
-            if (PatientId != 0)
-            {
-                query = query.Where(l => l.PatientId == PatientId);
-            }
+            query = query.Where(l => l.PatientId == PatientId);
             var labReports = await query.ToListAsync();
             return View(labReports);
         }
