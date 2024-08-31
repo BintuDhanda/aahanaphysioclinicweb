@@ -38,7 +38,7 @@ namespace AahanaClinic.Controllers
 
             // Filter data based on provided year and month
             var encounters = await _context.Encounters
-                .Join(_context.Patients.Where(g=>g.IsDeleted == false),
+                .Join(_context.Patients.Where(g => g.IsDeleted == false),
                       e => e.PatientId,
                       p => p.Id,
                       (e, p) => new Encounter
@@ -60,7 +60,7 @@ namespace AahanaClinic.Controllers
                 .Where(e => e.Timestamp.Year == year &&
                             e.Timestamp.Month == month)
                 .ToListAsync();
-
+            ModelState.AddModelError("", TempData["Error"]?.ToString() ?? "");
             return View(encounters);
 
         }
@@ -144,7 +144,10 @@ namespace AahanaClinic.Controllers
                     // If user is not authenticated, handle accordingly (e.g., redirect to login page)
                     return RedirectToAction("Index", "Account"); // Adjust to your application's login action
                 }
-
+                if(payload.PackageId == 0)
+                {
+                    encounter.PackageId = null;
+                }
                 encounter.EncounterDate = Utility.GetDateFromYearMonthDay(payload.EncounterDateTimeYear, payload.EncounterDateTimeMonth, payload.EncounterDateTimeDay);
                 encounter.From = Utility.GetTimeFromHoursMinutes(payload.FromHour, payload.FromMinute, payload.FromMeridiem);
                 encounter.To = Utility.GetTimeFromHoursMinutes(payload.ToHour, payload.ToMinute, payload.ToMeridiem);
@@ -252,11 +255,11 @@ namespace AahanaClinic.Controllers
                     };
                     _context.Add(transaction);
                     await _context.SaveChangesAsync();
-                    var patient = await _context.Patients.FindAsync(encounter.PatientId);
-                    if (patient != null)
+                    var package = await _context.Packages.FindAsync(encounter.PackageId);
+                    if (package != null)
                     {
-                        patient.VisitBalance -= 1;
-                        _context.Update(patient);
+                        package.VisitBalance -= 1;
+                        _context.Update(package);
                         await _context.SaveChangesAsync();
                     }
                 }

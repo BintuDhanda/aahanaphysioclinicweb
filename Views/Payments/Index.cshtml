@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AahanaClinic.Models.Payment>
+﻿@model IEnumerable<AahanaClinic.Models.Package>
 @using Microsoft.AspNetCore.Http
 
 @{
@@ -30,7 +30,9 @@
                     <th>Date</th>
                     <th>Mode</th>
                     <th>Amount</th>
+                    <th>Price/Visit</th>
                     <th>Visits</th>
+                    <th>Balance Visits</th>
                     <th>Transaction Id</th>
                     <th>Action</th>
                 </tr>
@@ -41,20 +43,22 @@
                     <tr>
                         <td>@item.Patient?.Name (@item.Patient.MobileNumber)</td>
                         <td>@item.Date.ToString().Substring(0, 10)</td>
-                        <td>@item.Mode</td>
+                        <td>@item.Mode.Name</td>
                         <td>@item.Amount</td>
+                        <td>@item.AveragePrice</td>
                         <td>@item.Visits</td>
+                        <td>@item.VisitBalance</td>
                         <td>@(item.TransactionId ?? "NA")</td>
                         <td>
-                            @* <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-edit"></i>
-                            </a> *@
+                            </a>
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-info-circle"></i>
                             </a>
-                           @*  <a href="#" class="text-decoration-none delete-btn" data-id="@item.Id">
+                            <a href="#" class="text-decoration-none delete-btn" data-id="@item.Id">
                                 <i class="fas fa-trash-alt text-danger"></i>
-                            </a> *@
+                            </a>
                         </td>
                     </tr>
                 }

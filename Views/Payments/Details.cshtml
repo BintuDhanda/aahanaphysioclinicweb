@@ -1,4 +1,4 @@
-﻿@model Payment
+﻿@model Package
 
 @{
     ViewData["Title"] = "Details";
@@ -53,7 +53,7 @@
                 @Html.DisplayNameFor(model => model.Mode)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Mode)
+                @Html.DisplayFor(model => model.Mode.Name)
             </dd>
             <dt class="col-sm-2">
                 Transaction ID
@@ -70,7 +70,6 @@
         </dl>
     </div>
     <div>
-        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
         <a asp-action="Index">Back to List</a>
     </div>
 </div>

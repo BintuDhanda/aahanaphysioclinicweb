@@ -24,7 +24,8 @@ namespace AahanaClinic.Database
         }
         public DbSet<BookAnAppointment> Appointments { get; set; }
         public DbSet<Patient> Patients { get; set; }
-        public DbSet<Payment> Payments { get; set; }
+        public DbSet<PaymentMode> PaymentModes { get; set; }
+        public DbSet<Package> Packages { get; set; }
         public DbSet<Encounter> Encounters { get; set; }
         public DbSet<VisitTransaction> VisitTransactions { get; set; }
         public DbSet<LabReport> LabReports { get; set; }

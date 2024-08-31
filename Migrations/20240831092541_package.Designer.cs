@@ -4,6 +4,7 @@ using AahanaClinic.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AahanaClinic.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240831092541_package")]
+    partial class package
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,15 +93,15 @@ namespace AahanaClinic.Migrations
                         {
                             Id = "61cc032a-985c-44c9-8aeb-8d2dc5d9626a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a08b22a6-42c1-4a70-985d-08bf9faee7c9",
+                            ConcurrencyStamp = "d9d04aa8-bd6f-4e05-acad-0545ba791995",
                             Email = "drannupt@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "DRANNUPT@GMAIL.COM",
                             NormalizedUserName = "DRANNUPT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJfGllcF510gbFA0Ov3UuEV/qPKtdjQANpYHLbXqLydRriFB2fZvGz5WM9lXlQMXbQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHgS9gdeK7aYQ7XZH9sHcktJvF+JGD0opBQegZyKv8ZyPxIPdF6lrJLQekCMYZGy4g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2745256c-6979-416d-8651-12c3de4db9c1",
+                            SecurityStamp = "80296cf1-8cb9-4870-9b17-659fc36dcb75",
                             TwoFactorEnabled = false,
                             UserName = "drannupt@gmail.com"
                         });
@@ -159,9 +161,6 @@ namespace AahanaClinic.Migrations
                     b.Property<string>("MedicalHistory")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PackageId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
 
@@ -181,8 +180,6 @@ namespace AahanaClinic.Migrations
                         .HasColumnType("tinyint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PackageId");
 
                     b.HasIndex("PatientId");
 
@@ -334,6 +331,9 @@ namespace AahanaClinic.Migrations
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("VisitBalance")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedBy");
@@ -474,7 +474,7 @@ namespace AahanaClinic.Migrations
                         new
                         {
                             Id = "b241f5b3-1bdf-4f41-9cef-f7c78664bc80",
-                            ConcurrencyStamp = "3ba3693e-7f88-4191-8c2f-9cb0f5ec3ffe",
+                            ConcurrencyStamp = "2d615175-8ff8-411d-a5a2-0449bf16f66c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -599,17 +599,11 @@ namespace AahanaClinic.Migrations
 
             modelBuilder.Entity("AahanaClinic.Models.Encounter", b =>
                 {
-                    b.HasOne("AahanaClinic.Models.Package", "Package")
-                        .WithMany()
-                        .HasForeignKey("PackageId");
-
                     b.HasOne("AahanaClinic.Models.Patient", "Patient")
                         .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Package");
 
                     b.Navigation("Patient");
                 });

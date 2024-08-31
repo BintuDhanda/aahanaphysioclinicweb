@@ -171,11 +171,6 @@ namespace AahanaClinic.Controllers
                 if (patient != null)
                 {
                     var finalResponse = patient.Adapt<PatientViewModel>();
-                    var payment = await _context.Payments.Where(x => x.PatientId == patient.Id).OrderByDescending(o => o.Id).FirstOrDefaultAsync();
-                    if (payment != null)
-                    {
-                        finalResponse.Fees = Math.Round(payment.Amount / payment.Visits, 2);
-                    }
                     return Ok(finalResponse);
                 }
                 else

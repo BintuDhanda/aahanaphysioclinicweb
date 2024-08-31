@@ -1,8 +1,9 @@
-﻿@model PaymentViewModel
+﻿@model PackageViewModel
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var modes = ViewBag.Modes as List<PaymentMode>;
 }
 
 <style>
@@ -81,11 +82,13 @@
                         <label asp-for="Mode" class="control-label">Mode</label>
                         <select asp-for="Mode" class="form-control" required>
                             <option value="">--Select--</option>
-                            <option value="Google Pay">Google Pay</option>
-                            <option value="Phonepe">Phonepe</option>
-                            <option value="Paytm">Paytm</option>
-                            <option value="Net Banking">Net Banking</option>
-                            <option value="Cash">Cash</option>
+                            @if (modes != null)
+                            {
+                                foreach (var item in modes)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            }
                         </select>
                         <span asp-validation-for="Mode" class="text-danger"></span>
                     </div>

@@ -299,9 +299,17 @@
                         <span asp-validation-for="Treatment" class="text-danger"></span>
                     </div>
 
+                    <div class="form-group">
+                        <label asp-for="PackageId" class="control-label">Package</label>
+                        <select asp-for="PackageId" class="form-control" required>
+                            <option value="">--Select--</option>
+                            <option value="0">Onetime</option>
+                        </select>
+                        <span asp-validation-for="PackageId" class="text-danger"></span>
+                    </div>
                     <div class="mb-3">
                         <label asp-for="Fees" class="form-label textGradient">Fees</label>
-                        <input asp-for="Fees" name="Fees" class="form-control" readonly />
+                        <input asp-for="Fees" name="Fees" class="form-control" readonly required />
                         <span asp-validation-for="Fees" class="text-danger"></span>
                     </div>
 
@@ -317,6 +325,7 @@
 </div>
 
 <script>
+    var packages = []
     document.getElementById("searchButton").addEventListener("click", function () {
         var patientSearchInput = document.getElementById("patientSearchInput").value;
         var patientDetailsLabel = document.getElementById("patientDetailsLabel");
@@ -333,15 +342,42 @@
             .then(data => {
                 patientDetailsLabel.innerText = `Patient Name: ${data.name}, Mobile Number: ${data.mobileNumber}`;
                 document.getElementById("patientId").value = data.id; // Assuming id is the property for PatientId
-                document.getElementById("Fees").value = data.fees; 
                 document.getElementById("addButton").disabled = false; // Enable add button
+                fetch(`/Payments/Packages?id=${data.id}`)
+                    .then(response => {
+                        response.json().then((data) => {
+                            packages = data;
+                            data.map(item => {
+                                var selectElement = document.getElementById("PackageId");
+
+                                var newOption = document.createElement("option");
+
+                                newOption.value = item.id;
+                                newOption.text = `P${item.id} - Rs. ${item.amount}/- Visits: ${item.visitBalance}/${item.visits} (Rs.${item.averagePrice}/Visit)`;
+                                selectElement.appendChild(newOption);
+                            })
+                        })
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        // Handle other errors here if needed
+                    });
             })
             .catch(error => {
                 // Handle other errors here if needed
             });
     });
+    document.getElementById("PackageId").addEventListener("change", function () {
+        var id = document.getElementById("PackageId").value;
+        if(id == 0){
+            document.getElementById("Fees").removeAttribute("readonly")
+        }else{
+            document.getElementById("Fees").setAttribute("readonly","true")
+        var amount = packages.find(f => f.id == id).averagePrice
+        document.getElementById("Fees").value = amount;
+        }
+    })
 </script>
-
 
 
 <script>

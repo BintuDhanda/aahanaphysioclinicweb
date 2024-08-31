@@ -8,6 +8,8 @@ namespace AahanaClinic.ViewModels
     {
         public int Id { get; set; }
         public int PatientId { get; set; }
+        public bool IsOneTime { get; set; }
+        public int? PackageId { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
         public decimal Fees { get; set; }

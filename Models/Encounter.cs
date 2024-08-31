@@ -8,6 +8,9 @@ namespace AahanaClinic.Models
         public int PatientId { get; set; }
         [ForeignKey(nameof(PatientId))]
         public Patient? Patient { get; set; }
+        public int? PackageId { get; set; }
+        [ForeignKey(nameof(PackageId))]
+        public Package? Package { get; set; }
         public decimal? Fees { get; set; }
         public string? CheifComplaint { get; set; }
         public byte VAScale { get; set; }

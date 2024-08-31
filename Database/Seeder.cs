@@ -33,6 +33,12 @@ namespace AahanaClinic.Database
             builder.Entity<IdentityUserRole<string>>().HasData(
                 new IdentityUserRole<string> { RoleId = "b241f5b3-1bdf-4f41-9cef-f7c78664bc80", UserId = "61cc032a-985c-44c9-8aeb-8d2dc5d9626a" }
             );
+
+            builder.Entity<PaymentMode>().HasData(new PaymentMode { Id = 1, Name = "Google Pay" });
+            builder.Entity<PaymentMode>().HasData(new PaymentMode { Id = 2, Name = "PhonePe" });
+            builder.Entity<PaymentMode>().HasData(new PaymentMode { Id = 3, Name = "Paytm" });
+            builder.Entity<PaymentMode>().HasData(new PaymentMode { Id = 4, Name = "Net Banking" });
+            builder.Entity<PaymentMode>().HasData(new PaymentMode { Id = 5, Name = "Cash" });
         }
     }
 }
