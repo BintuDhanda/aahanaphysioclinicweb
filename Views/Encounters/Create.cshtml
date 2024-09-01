@@ -371,7 +371,7 @@
                 patientDetailsLabel.innerText = `Patient Name: ${data.name}, Mobile Number: ${data.mobileNumber}`;
                 document.getElementById("patientId").value = data.id; // Assuming id is the property for PatientId
                 document.getElementById("addButton").disabled = false; // Enable add button
-                fetch(`/Payments/Packages?id=${data.id}`)
+                fetch(`/Packages/Packages?id=${data.id}`)
                     .then(response => {
                         response.json().then((data) => {
                             packages = data;
