@@ -125,6 +125,7 @@ namespace AahanaClinic.Controllers
         // GET: Encounters/Create
         public IActionResult Create()
         {
+            ViewBag.Modes = _context.PaymentModes.ToList();
             return View();
         }
 
@@ -144,9 +145,26 @@ namespace AahanaClinic.Controllers
                     // If user is not authenticated, handle accordingly (e.g., redirect to login page)
                     return RedirectToAction("Index", "Account"); // Adjust to your application's login action
                 }
-                if(payload.PackageId == 0)
+                if (payload.PackageId == 0)
                 {
-                    encounter.PackageId = null;
+                    if (!ModelState.IsValid)
+                    {
+                        throw new Exception("Invalid request");
+                    }
+                    var payment = new Package();
+                    payment.ModeId = payload.Mode ?? 0;
+                    payment.Amount = payload.Fees;
+                    payment.TransactionId = payload.TransactionId;
+                    payment.VisitBalance = 1;
+                    payment.Visits = 1;
+                    payment.AveragePrice = payload.Fees / payment.Visits;
+                    payment.PatientId = payload.PatientId;
+                    payment.Date = payload.Date ?? DateTime.Now;
+                    payment.Timestamp = DateTime.Now;
+                    payment.CreatedBy = user.Id;
+                    _context.Packages.Add(payment);
+                    await _context.SaveChangesAsync();
+                    encounter.PackageId = payment.Id;
                 }
                 encounter.EncounterDate = Utility.GetDateFromYearMonthDay(payload.EncounterDateTimeYear, payload.EncounterDateTimeMonth, payload.EncounterDateTimeDay);
                 encounter.From = Utility.GetTimeFromHoursMinutes(payload.FromHour, payload.FromMinute, payload.FromMeridiem);
@@ -154,7 +172,7 @@ namespace AahanaClinic.Controllers
                 encounter.MedicalHistory = MedicalHistoryString(payload);
                 encounter.CreatedBy = user.Id;
 
-                _context.Add(encounter);
+                _context.Encounters.Add(encounter);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

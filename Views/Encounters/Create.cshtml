@@ -307,6 +307,34 @@
                         </select>
                         <span asp-validation-for="PackageId" class="text-danger"></span>
                     </div>
+                    <div id="onetimeOptionInputs" style="display:none">
+                        <div class="form-group">
+                            <label asp-for="Mode" class="control-label">Mode</label>
+                            <select asp-for="Mode" class="form-control" required>
+                                <option value="">--Select--</option>
+                                @if (ViewBag.Modes != null)
+                                {
+                                    foreach (var item in ViewBag.Modes as List<PaymentMode>)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="Mode" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Date" class="control-label">Payment Date</label>
+                            <input asp-for="Date" type="date" class="form-control" />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TransactionId" class="form-label textGradient">Transaction Id</label>
+                            <input asp-for="TransactionId" class="form-control" required />
+                            <span asp-validation-for="TransactionId" class="text-danger"></span>
+                        </div>
+                    </div>
                     <div class="mb-3">
                         <label asp-for="Fees" class="form-label textGradient">Fees</label>
                         <input asp-for="Fees" name="Fees" class="form-control" readonly required />
@@ -369,12 +397,21 @@
     });
     document.getElementById("PackageId").addEventListener("change", function () {
         var id = document.getElementById("PackageId").value;
-        if(id == 0){
+        if (id == 0) {
+            document.getElementById("onetimeOptionInputs").style.display = "block"
+            document.getElementById("Mode").setAttribute("required", "true")
+            document.getElementById("TransactionId").setAttribute("required", "true")
+            document.getElementById("Date").setAttribute("required", "true")
             document.getElementById("Fees").removeAttribute("readonly")
-        }else{
-            document.getElementById("Fees").setAttribute("readonly","true")
-        var amount = packages.find(f => f.id == id).averagePrice
-        document.getElementById("Fees").value = amount;
+            document.getElementById("Fees").value = 0
+        } else {
+            document.getElementById("onetimeOptionInputs").style.display = "none"
+            document.getElementById("Mode").removeAttribute("required")
+            document.getElementById("TransactionId").removeAttribute("required")
+            document.getElementById("Date").removeAttribute("required")
+            document.getElementById("Fees").setAttribute("readonly", "true")
+            var amount = packages.find(f => f.id == id).averagePrice
+            document.getElementById("Fees").value = amount;
         }
     })
 </script>

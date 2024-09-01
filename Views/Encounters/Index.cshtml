@@ -108,13 +108,13 @@
     </div>
 </div>
 
-<div class="modal" id="EncounterStatusModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="EncounterStatusModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <form asp-action="UpdateStatus" enctype="multipart/form-data" method="post">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title">Update Status</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </form>
@@ -147,7 +147,7 @@
     <script>
         function onUpdateStatusClick(id, status) {
             document.getElementById("EncounterId").value = id;
-            document.getElementById("EncounterStatus").value = status;
+            document.getElementById("EncounterStatus").value = status||"";
             $("#EncounterStatusModal").modal("show");
         }
         $(document).ready(function () {

@@ -40,5 +40,8 @@ namespace AahanaClinic.ViewModels
         public bool MetalImplant { get; set; }
         public string? Patient { get; set; }
         public int Status { get; set; }
+        public int? Mode { get; set; }
+        public string? TransactionId { get; set; }
+        public DateTime? Date { get; set; }
     }
 }
