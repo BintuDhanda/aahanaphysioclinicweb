@@ -1,7 +1,7 @@
 ﻿@model PackageViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Package Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var modes = ViewBag.Modes as List<PaymentMode>;
 }
@@ -59,25 +59,21 @@
 </style>
 
 <div class="container" style="margin-top:10px;">
-    <h1 class="textGradient text-center" style="font-size: 24px;">Add Payment</h1>
+    <h1 class="textGradient text-center" style="font-size: 24px;">Edit Package</h1>
 
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="form-container">
-                <form asp-action="Create" method="post">
+                <form asp-action="Edit" method="post">
                     @Html.AntiForgeryToken()
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="mb-3">
-                        <label asp-for="PatientId" class="form-label textGradient">Patient Mobile Number</label>
-                        <div class="input-group">
-                            <input type="text" id="patientSearchInput" class="form-control" placeholder="Search Patient...">
-                            <button type="button" id="searchButton" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+                        <div>
+                            <label asp-for="PatientId" class="form-label textGradient">Patient</label>
                         </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label id="patientDetailsLabel"></label>
+                        <label id="patientDetailsLabel">@(Model.Patient)</label>
+                        <input type="hidden" asp-for="Id" />
                         <input type="hidden" id="patientId" asp-for="PatientId" />
                     </div>
 
@@ -118,37 +114,10 @@
                     </div>
 
                     <div class="mb-3 text-center">
-                        <button type="submit" id="addButton" class="btn btn-primary" disabled><i class="fas fa-plus"></i> Add</button>
+                        <button type="submit" id="addButton" class="btn btn-primary"><i class="fas fa-plus"></i> Update</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-
 </div>
-
-<script>
-    document.getElementById("searchButton").addEventListener("click", function () {
-        var patientSearchInput = document.getElementById("patientSearchInput").value;
-        var patientDetailsLabel = document.getElementById("patientDetailsLabel");
-        patientDetailsLabel.innerText = "Searching for patient...";
-        document.getElementById("addButton").disabled = true; // Disable add button
-        fetch(`/Patients/PatientDetails?mobileNo=${patientSearchInput}`)
-            .then(response => {
-                if (response.status === 204) {
-                    patientDetailsLabel.innerText = "Patient not found.";
-                    throw new Error("Patient not found");
-                }
-                return response.json();
-            })
-            .then(data => {
-                patientDetailsLabel.innerText = `Patient Name: ${data.name}, Mobile Number: ${data.mobileNumber}`;
-                document.getElementById("patientId").value = data.id; // Assuming id is the property for PatientId
-                document.getElementById("addButton").disabled = false; // Enable add button
-            })
-            .catch(error => {
-                // Handle other errors here if needed
-            });
-    });
-</script>

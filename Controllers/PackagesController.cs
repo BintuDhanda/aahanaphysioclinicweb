@@ -1,24 +1,21 @@
 ﻿using AahanaClinic.Database;
-using AahanaClinic.Migrations;
 using AahanaClinic.Models;
 using AahanaClinic.ViewModels;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Metrics;
 
 namespace AahanaClinic.Controllers
 {
     [Authorize]
-    public class PaymentsController : Controller
+    public class PackagesController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _environment;
         private readonly UserManager<ApplicationUser> _userManager;
-        public PaymentsController(AppDbContext context, IWebHostEnvironment environment, UserManager<ApplicationUser> userManager)
+        public PackagesController(AppDbContext context, IWebHostEnvironment environment, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _environment = environment;
@@ -92,7 +89,7 @@ namespace AahanaClinic.Controllers
                 TempData["Error"] = e.Message;
                 return RedirectToAction(nameof(Create));
             }
-            return Redirect($"/Payments/Index/{payload?.PatientId ?? 0}");
+            return Redirect($"/Packages/Index/{payload?.PatientId ?? 0}");
         }
 
         // GET: PaymentsController/Edit/5
@@ -141,7 +138,7 @@ namespace AahanaClinic.Controllers
                 finalResponse.Patient = $"Name: {payment?.Patient?.Name}, Mobile Number: {payment?.Patient?.MobileNumber}";
                 return View(finalResponse);
             }
-            return Redirect($"/Payments/Index/{payload?.PatientId ?? 0}");
+            return Redirect($"/Packages/Index/{payload?.PatientId ?? 0}");
         }
 
         // GET: PaymentsController/Delete/5
@@ -165,7 +162,7 @@ namespace AahanaClinic.Controllers
             {
                 ModelState.AddModelError("", e.Message);
             }
-            return Redirect($"/Payments/Index/{payment?.PatientId ?? 0}");
+            return Redirect($"/Packages/Index/{payment?.PatientId ?? 0}");
         }
     }
 }

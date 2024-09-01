@@ -1,12 +1,12 @@
 ﻿@model Package
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Package Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container mt-4">
-    <h3>Payment Details</h3>
+    <h3>Package Details</h3>
     <hr />
     <div>
         <dl class="row">
@@ -70,6 +70,6 @@
         </dl>
     </div>
     <div>
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" asp-route-id="@Model.PatientId">Back to List</a>
     </div>
 </div>

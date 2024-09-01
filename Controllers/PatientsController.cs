@@ -75,21 +75,32 @@ namespace AahanaClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] PatientViewModel payload)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var patient = payload.Adapt<Patient>();
-
-                var user = await _userManager.GetUserAsync(User);
-                if (user == null)
+                if (ModelState.IsValid)
                 {
-                    // If user is not authenticated, handle accordingly (e.g., redirect to login page)
-                    return RedirectToAction("Index", "Account"); // Adjust to your application's login action
-                }
+                    var patient = payload.Adapt<Patient>();
 
-                patient.CreatedBy = user.Id;
-                _context.Add(patient);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                    var user = await _userManager.GetUserAsync(User);
+                    if (user == null)
+                    {
+                        // If user is not authenticated, handle accordingly (e.g., redirect to login page)
+                        return RedirectToAction("Index", "Account"); // Adjust to your application's login action
+                    }
+                    var isExist = await _context.Patients.Where(g => g.MobileNumber == payload.MobileNumber && !g.IsDeleted).AnyAsync();
+                    if (isExist)
+                    {
+                        throw new Exception("Mobile no. already in use");
+                    }
+                    patient.CreatedBy = user.Id;
+                    _context.Add(patient);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", e.Message);
             }
             return View(payload);
         }
@@ -117,25 +128,38 @@ namespace AahanaClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(PatientViewModel payload)
         {
-
-            if (ModelState.IsValid)
+            try
             {
-                var patient = await _context.Patients.FindAsync(payload.Id);
-                if (patient == null)
+                if (ModelState.IsValid)
                 {
-                    return NotFound();
+                    var patient = await _context.Patients.FindAsync(payload.Id);
+                    if (patient == null)
+                    {
+                        return NotFound();
+                    }
+
+                    var isExist = await _context.Patients.Where(g => g.MobileNumber == payload.MobileNumber && g.Id != payload.Id && !g.IsDeleted).AnyAsync();
+                    if (isExist)
+                    {
+                        throw new Exception("Mobile no. already in use");
+                    }
+
+                    patient.Name = payload.Name ?? patient.Name;
+                    patient.MobileNumber = payload.MobileNumber ?? patient.MobileNumber;
+                    patient.Gender = payload.Gender ?? patient.Gender;
+                    patient.Occupation = payload.Occupation ?? patient.Occupation;
+                    patient.Address = payload.Address ?? patient.Address;
+                    patient.City = payload.City ?? patient.City;
+                    patient.State = payload.State ?? patient.State;
+                    patient.PinCode = payload.PinCode ?? patient.PinCode;
+                    _context.Update(patient);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
-                patient.Name = payload.Name ?? patient.Name;
-                patient.MobileNumber = payload.MobileNumber ?? patient.MobileNumber;
-                patient.Gender = payload.Gender ?? patient.Gender;
-                patient.Occupation = payload.Occupation ?? patient.Occupation;
-                patient.Address = payload.Address ?? patient.Address;
-                patient.City = payload.City ?? patient.City;
-                patient.State = payload.State ?? patient.State;
-                patient.PinCode = payload.PinCode ?? patient.PinCode;
-                _context.Update(patient);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", e.Message);
             }
             return View(payload);
         }
