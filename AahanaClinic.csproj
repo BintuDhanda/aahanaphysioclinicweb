@@ -25,4 +25,8 @@
     <Folder Include="wwwroot\FileStorage\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\style.css" />
+  </ItemGroup>
+
 </Project>

@@ -84,6 +84,23 @@ namespace AahanaClinic.Controllers
             return View(encounter);
         }
 
+        // GET: Encounters/Details/5
+        public async Task<IActionResult> Print(int? id)
+        {
+            if (id == null || _context.Encounters == null)
+            {
+                return NotFound();
+            }
+
+            var encounter = await _context.Encounters.Include(i => i.Patient).FirstOrDefaultAsync(m => m.Id == id);
+            if (encounter == null)
+            {
+                return NotFound();
+            }
+
+            return View(encounter);
+        }
+
         private string MedicalHistoryString(EncounterViewModel payload)
         {
             string result = "";

@@ -49,7 +49,7 @@
                         <td>@item.Visits</td>
                         <td>@item.VisitBalance</td>
                         <td>@(item.TransactionId ?? "NA")</td>
-                        <td>
+                        <td class="table-actions">
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-info-circle"></i>
                             </a>

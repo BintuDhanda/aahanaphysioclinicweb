@@ -1,0 +1,98 @@
+﻿@model Encounter;
+
+@{
+    Layout = null;
+    string UHID(int id)
+    {
+        string res = "000000";
+        int length = res.Length - id.ToString().Length;
+        if (length > 6)
+        {
+            length = 6;
+        }
+        if (length <= 0)
+        {
+            length = 0;
+        }
+        res = res.Substring(0, length);
+        return $"APC-{res}{id}";
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <div class="container" id="prescription">
+        <div class="header">
+            <h1>Aahana Physiotherapy Clinic</h1>
+            <p>Prescription by Dr. Kanika Bansal</p>
+        </div>
+
+        <div class="patient-info-container">
+            <h2>Patient Information</h2>
+            <div class="patient-info">
+                <p><strong>Name:</strong> @Model.Patient.Name</p>
+                <p><strong>Gender:</strong>  @Model.Patient.Gender</p>
+                <p><strong>UHID:</strong> @UHID(Model.Patient.Id)</p>
+                <p><strong>Date:</strong> @Model.Timestamp.ToLongDateString()</p>
+                <p><strong>Appointment ID:</strong> @Model.Id</p>
+            </div>
+        </div>
+
+        <div class="diagnosis">
+            <h2>Diagnosis</h2>
+            <p><strong>Chief Complaints:</strong></p>
+            <p>@Model.MedicalHistory</p>
+        </div>
+
+        <div class="medication">
+            <h2>Medications Prescribed</h2>
+        </div>
+
+        <div class="referral">
+            <h2>Referral</h2>
+            <p><strong>Speciality:</strong> Dermatologist</p>
+            <p><strong>Reason:</strong> Rashes</p>
+            <p><strong>Follow Up:</strong> After 3 days</p>
+        </div>
+
+        <div class="footer-note">
+            <p>
+                <strong>Disclaimer:</strong> This prescription was generated digitally
+                by Dr. Kanika Bansal on 01/09/2024, based on your inputs during
+                tele-consultation. It is valid from the date of issue until the
+                specific period/dosage of each medicine as advised.
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Aahana Physiotherapy Clinic</p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="printContainer()">Print</button>
+    </div>
+
+    <script>
+        function printContainer() {
+          const printContent = document.getElementById('prescription');
+          const originalContent = document.body.innerHTML;
+
+          // Hide everything except the print content
+          document.body.innerHTML = printContent.outerHTML;
+
+          // Print the page
+          window.print();
+
+          // Restore the original content
+          document.body.innerHTML = originalContent;
+        }
+    </script>
+</body>
+</html>

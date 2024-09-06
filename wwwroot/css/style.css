@@ -1,0 +1,108 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.header,
+.footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.patient-info-container,
+.diagnosis,
+.medication,
+.referral,
+.footer-note {
+    margin-bottom: 20px;
+}
+
+.medication {
+    min-height: 25rem;
+}
+
+.patient-info {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    justify-content: space-between;
+}
+
+    .patient-info p {
+        margin: 0.5rem 0;
+    }
+
+h1 {
+    margin: 0.5rem 0;
+}
+
+h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin: 0.5rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+.footer {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .buttons button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+/* Print Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        margin: 0;
+        width: 100%;
+        max-width: none;
+        border: none;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .buttons {
+        display: none;
+    }
+}

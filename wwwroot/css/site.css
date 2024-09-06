@@ -1,16 +1,16 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -39,7 +39,7 @@ button {
     transition: background-color 0.3s ease;
 }
 
- button:hover {
+    button:hover {
         background-image: linear-gradient(to right, #0059b3, #99ccff);
     }
 
@@ -50,7 +50,7 @@ button {
 
 .navbar-nav .nav-link:hover {
     color: #fff !important;
-    background-color:  darkblue !important;
+    background-color: darkblue !important;
 }
 
 .carousel {
@@ -70,20 +70,20 @@ button {
     z-index: 1;
     text-align: center;
 }
-    /* For normal view */
-    @media (min-width: 768px) {
-        .carousel-caption {
-            bottom: 5px; /* Position at the bottom */
-            transform: translateY(2%); /* Reset vertical translation */
-        }
+/* For normal view */
+@media (min-width: 768px) {
+    .carousel-caption {
+        bottom: 5px; /* Position at the bottom */
+        transform: translateY(2%); /* Reset vertical translation */
     }
-    /* For responsive view */
-    @media (max-width: 767px) {
-        .carousel-caption {
-            top: 50%; /* Position at the center vertically */
-            transform: translateY(-50%); /* Center vertically */
-        }
+}
+/* For responsive view */
+@media (max-width: 767px) {
+    .carousel-caption {
+        top: 50%; /* Position at the center vertically */
+        transform: translateY(-50%); /* Center vertically */
     }
+}
 
 
 .carousel-item img {
@@ -97,8 +97,8 @@ footer {
     position: relative !important;
 }
 
-footer div {
-       color: darkblue;
+    footer div {
+        color: darkblue;
     }
 
 .whatsapp-fixed {
@@ -116,7 +116,7 @@ footer div {
     font-size: 24px;
     z-index: 9999;
     transition: all 0.3s ease;
-    text-decoration:none;
+    text-decoration: none;
 }
 
     .whatsapp-fixed:hover {
@@ -158,4 +158,6 @@ footer div {
     background-color: #000;
 }
 
-
+.table-actions a {
+    margin-right: 0.3rem;
+}

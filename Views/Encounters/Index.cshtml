@@ -84,12 +84,15 @@
                         <td><span class="smiley" id="extraSmiley">@symbols[item.VAScale]</span></td>
                         <td>@item.MedicalHistory</td>
                         <td>@statuses[item.Status]</td>
-                        <td>
+                        <td class="table-actions">
                             <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a asp-action="Print" target="_blank" asp-route-id="@item.Id" class="text-decoration-none">
+                                <i class="fas fa-print"></i>
                             </a>
                             @if (item.Status < 2)
                             {
