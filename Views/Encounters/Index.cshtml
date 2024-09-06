@@ -85,9 +85,12 @@
                         <td>@item.MedicalHistory</td>
                         <td>@statuses[item.Status]</td>
                         <td class="table-actions">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
-                                <i class="fas fa-edit"></i>
-                            </a>
+                            @if (item.Status < 2)
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            }
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-info-circle"></i>
                             </a>
@@ -99,10 +102,10 @@
                                 <a href="#" onclick="onUpdateStatusClick(@item.Id, @item.Status)" class="text-decoration-none">
                                     <i class="fas fa-history"></i>
                                 </a>
-                            }
-                            <a href="#" class="text-decoration-none delete-btn" data-id="@item.Id">
+                                @* <a href="#" class="text-decoration-none delete-btn" data-id="@item.Id">
                                 <i class="fas fa-trash-alt text-danger"></i>
-                            </a>
+                                </a> *@
+                            }
                         </td>
                     </tr>
                 }
@@ -150,7 +153,7 @@
     <script>
         function onUpdateStatusClick(id, status) {
             document.getElementById("EncounterId").value = id;
-            document.getElementById("EncounterStatus").value = status||"";
+            document.getElementById("EncounterStatus").value = status || "";
             $("#EncounterStatusModal").modal("show");
         }
         $(document).ready(function () {
