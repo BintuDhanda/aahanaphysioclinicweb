@@ -17,6 +17,7 @@
         res = res.Substring(0, length);
         return $"APC-{res}{id}";
     }
+    string doctor = ".................................";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -30,11 +31,11 @@
     <div class="container" id="prescription">
         <div class="header">
             <h1>Aahana Physiotherapy Clinic</h1>
-            <p>Prescription by Dr. Kanika Bansal</p>
+            <p>Prescription by @doctor</p>
         </div>
 
         <div class="patient-info-container">
-            <h2>Patient Information</h2>
+            <h2>Patient</h2>
             <div class="patient-info">
                 <p><strong>Name:</strong> @Model.Patient.Name</p>
                 <p><strong>Gender:</strong>  @Model.Patient.Gender</p>
@@ -51,21 +52,20 @@
         </div>
 
         <div class="medication">
-            <h2>Medications Prescribed</h2>
+            <h2>Prescribed Medications</h2>
         </div>
 
         <div class="referral">
             <h2>Referral</h2>
-            <p><strong>Speciality:</strong> Dermatologist</p>
-            <p><strong>Reason:</strong> Rashes</p>
-            <p><strong>Follow Up:</strong> After 3 days</p>
+            <p><strong>Speciality:</strong> </p>
+            <p><strong>Reason:</strong> </p>
+            <p><strong>Follow Up:</strong> </p>
         </div>
 
         <div class="footer-note">
             <p>
                 <strong>Disclaimer:</strong> This prescription was generated digitally
-                by Dr. Kanika Bansal on 01/09/2024, based on your inputs during
-                tele-consultation. It is valid from the date of issue until the
+                by @doctor on @Model.Timestamp.ToLongDateString(), based on your inputs. It is valid from the date of issue until the
                 specific period/dosage of each medicine as advised.
             </p>
         </div>
@@ -81,17 +81,17 @@
 
     <script>
         function printContainer() {
-          const printContent = document.getElementById('prescription');
-          const originalContent = document.body.innerHTML;
+            const printContent = document.getElementById('prescription');
+            const originalContent = document.body.innerHTML;
 
-          // Hide everything except the print content
-          document.body.innerHTML = printContent.outerHTML;
+            // Hide everything except the print content
+            document.body.innerHTML = printContent.outerHTML;
 
-          // Print the page
-          window.print();
+            // Print the page
+            window.print();
 
-          // Restore the original content
-          document.body.innerHTML = originalContent;
+            // Restore the original content
+            document.body.innerHTML = originalContent;
         }
     </script>
 </body>
