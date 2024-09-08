@@ -1,6 +1,7 @@
 using AahanaClinic;
 using AahanaClinic.Database;
 using AahanaClinic.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -30,6 +31,10 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;    
 });
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireNonAlphanumeric = false;
+});
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account";
@@ -41,6 +46,7 @@ var app = builder.Build();
 using(var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
     db.Database.Migrate();
 }
 // Configure the HTTP request pipeline.

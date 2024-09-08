@@ -9,12 +9,13 @@ namespace AahanaClinic
         public static void Register()
         {
             TypeAdapterConfig<SettingsViewModel, Settings>.NewConfig()
-                .Ignore(i => i.Logo).Ignore(i => i.Signature);
+                .Ignore(i => i.Logo).Ignore(i => i.Signature).Ignore(i => i.AccountantSignature);
 
             TypeAdapterConfig<Settings, SettingsViewModel>.NewConfig()
                 .Ignore(i => i.Logo).Ignore(i => i.Signature)
                 .Map(d => d.LogoUrl, s => $"{s.LogoFile.Url}{s.LogoFile.Name}")
-                .Map(d => d.SignatureUrl, s => $"{s.SignatureFile.Url}{s.SignatureFile.Name}");
+                .Map(d => d.SignatureUrl, s => $"{s.SignatureFile.Url}{s.SignatureFile.Name}")
+                .Map(d => d.AccountantSignatureUrl, s => $"{s.AccountantSignatureFile.Url}{s.AccountantSignatureFile.Name}");
 
             TypeAdapterConfig<PackageViewModel, Package>.NewConfig().Map(d => d.ModeId, s => s.Mode)
                 .Ignore(i => i.VisitBalance).Ignore(i => i.AveragePrice);

@@ -87,14 +87,23 @@ namespace AahanaClinic.Controllers
                         // If user is not authenticated, handle accordingly (e.g., redirect to login page)
                         return RedirectToAction("Index", "Account"); // Adjust to your application's login action
                     }
-                    var isExist = await _context.Patients.Where(g => g.MobileNumber == payload.MobileNumber && !g.IsDeleted).AnyAsync();
-                    if (isExist)
+                    var exist = await _context.Patients.Where(g => g.MobileNumber == payload.MobileNumber).FirstOrDefaultAsync();
+                    if (exist != null && exist.IsDeleted == true)
+                    {
+                        exist.IsDeleted = false;
+                        _context.Patients.Update(exist);
+                        await _context.SaveChangesAsync();
+                    }
+                    else if (exist != null)
                     {
                         throw new Exception("Mobile no. already in use");
                     }
-                    patient.CreatedBy = user.Id;
-                    _context.Add(patient);
-                    await _context.SaveChangesAsync();
+                    else
+                    {
+                        patient.CreatedBy = user.Id;
+                        _context.Add(patient);
+                        await _context.SaveChangesAsync();
+                    }
                     return RedirectToAction(nameof(Index));
                 }
             }

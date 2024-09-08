@@ -26,7 +26,7 @@ namespace AahanaClinic.Controllers
 
         public IActionResult Index()
         {
-            var model = _context.Settings.Include(i => i.LogoFile).Include(i => i.SignatureFile).FirstOrDefault();
+            var model = _context.Settings.Include(i => i.LogoFile).Include(i => i.SignatureFile).Include(i => i.AccountantSignatureFile).FirstOrDefault();
             var finalResponse = model.Adapt<SettingsViewModel>();
             if (finalResponse == null)
             {
@@ -47,6 +47,7 @@ namespace AahanaClinic.Controllers
                 if (setting == null)
                 {
                     setting = payload.Adapt<Settings>();
+                    setting.Name = payload.Name;
                     setting.Address = payload.Address;
                     if (payload.Logo != null)
                     {
@@ -64,11 +65,20 @@ namespace AahanaClinic.Controllers
                     {
                         TempData["ErrorMessage"] = "Please fill all detail";
                     }
+                    if (payload.AccountantSignature != null)
+                    {
+                        setting.AccountantSignature = Utility.UploadFile(payload.AccountantSignature, _context, _environment).Result;
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "Please fill all detail";
+                    }
                     setting.CreatedBy = _userManager.GetUserAsync(User).Result.Id;
                     _context.Settings.Add(setting);
                 }
                 else
                 {
+                    setting.Name = payload.Name;
                     setting.Address = payload.Address;
                     if (payload.Logo != null)
                     {
@@ -77,6 +87,10 @@ namespace AahanaClinic.Controllers
                     if (payload.Signature != null)
                     {
                         setting.Signature = Utility.UploadFile(payload.Signature, _context, _environment, setting.Signature).Result;
+                    }
+                    if (payload.AccountantSignature != null)
+                    {
+                        setting.AccountantSignature = Utility.UploadFile(payload.AccountantSignature, _context, _environment, setting.AccountantSignature).Result;
                     }
                     _context.Settings.Update(setting);
                 }

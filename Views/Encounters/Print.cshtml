@@ -18,6 +18,12 @@
         return $"APC-{res}{id}";
     }
     string doctor = ".................................";
+    string[] symbols = { "😊", "😊", "😃", "😃", "😐", "😐", "😕", "😕", "😟", "😟", "😢", "😢" };
+    var settings = ViewBag.Settings as SettingsViewModel;
+    if(settings == null)
+    {
+        settings = new SettingsViewModel();
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -29,24 +35,30 @@
 </head>
 <body>
     <div class="container" id="prescription">
-        <div class="header">
-            <h1>Aahana Physiotherapy Clinic</h1>
-            <p>Prescription by @doctor</p>
+        <div class="header" style="display:flex; align-items:center; justify-content:space-between;margin-bottom:3px">
+            <img src="~/@settings?.LogoUrl" width="100" />
+            <div>
+                <h1>@(settings?.Name ?? "Aahana Physiotherapy Clinic")</h1>
+                <p>@(settings?.Address)</p>
+            </div>
+            <img src="~/@settings?.LogoUrl" width="100" />
         </div>
+        <p style="text-align:center;margin:0">Prescription by @doctor</p>
 
         <div class="patient-info-container">
             <h2>Patient</h2>
             <div class="patient-info">
-                <p><strong>Name:</strong> @Model.Patient.Name</p>
-                <p><strong>Gender:</strong>  @Model.Patient.Gender</p>
+                <p><strong>Name:</strong> @Model?.Patient?.Name</p>
+                <p><strong>Gender:</strong>  @Model?.Patient?.Gender</p>
                 <p><strong>UHID:</strong> @UHID(Model.Patient.Id)</p>
-                <p><strong>Date:</strong> @Model.Timestamp.ToLongDateString()</p>
+                <p><strong>Date:</strong> @Model?.Timestamp.ToLongDateString()</p>
                 <p><strong>Appointment ID:</strong> @Model.Id</p>
             </div>
         </div>
 
         <div class="diagnosis">
             <h2>Diagnosis</h2>
+            <p><strong>VAS:</strong> @symbols[Model.VAScale]</p>
             <p><strong>Chief Complaints:</strong></p>
             <p>@Model.MedicalHistory</p>
         </div>
@@ -57,9 +69,11 @@
 
         <div class="referral">
             <h2>Referral</h2>
-            <p><strong>Speciality:</strong> </p>
+            <div style="display:flex">
+                <p style="margin-right:35%"><strong>Speciality:</strong> </p>
+                <p><strong>Follow Up:</strong> </p>
+            </div>
             <p><strong>Reason:</strong> </p>
-            <p><strong>Follow Up:</strong> </p>
         </div>
 
         <div class="footer-note">
@@ -69,8 +83,17 @@
                 specific period/dosage of each medicine as advised.
             </p>
         </div>
-
-        <div class="footer">
+        <div class="footer" style="margin-bottom:3px">
+            <div style="display:flex; align-items:center; justify-content:space-between">
+                <div>
+                    <img src="~/@settings?.SignatureUrl" width="70" />
+                    <h4>Doctor Signature</h4>
+                </div>
+                <div>
+                    <img src="~/@settings?.AccountantSignatureUrl" width="70" />
+                    <h4>Accountant Signature</h4>
+                </div>
+            </div>
             <p>&copy; 2024 Aahana Physiotherapy Clinic</p>
         </div>
     </div>

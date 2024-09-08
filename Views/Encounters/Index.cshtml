@@ -65,6 +65,7 @@
         <table id="encountersTable" class="table table-bordered table-striped table-responsive">
             <thead class="thead-dark">
                 <tr>
+                    <th>#</th>
                     <th>Patient</th>
                     <th>Date</th>
                     <th>Time</th>
@@ -78,6 +79,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td>@item.Id</td>
                         <td>@item.Patient?.Name (@item.Patient.MobileNumber)</td>
                         <td>@item.EncounterDate.ToString().Substring(0, 10)</td>
                         <td>@item.From.ToString("hh:mm tt") : @item.To.ToString("hh:mm tt")</td>

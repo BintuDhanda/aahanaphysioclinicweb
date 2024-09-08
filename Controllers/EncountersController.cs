@@ -97,7 +97,8 @@ namespace AahanaClinic.Controllers
             {
                 return NotFound();
             }
-
+            var settings = await _context.Settings.Include(i => i.LogoFile).Include(i => i.SignatureFile).Include(i => i.AccountantSignatureFile).FirstOrDefaultAsync();
+            ViewBag.Settings = settings.Adapt<SettingsViewModel>();
             return View(encounter);
         }
 
