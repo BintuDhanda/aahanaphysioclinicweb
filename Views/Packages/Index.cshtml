@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AahanaClinic.Models.Package>
+﻿@model IEnumerable<Package>
 @using Microsoft.AspNetCore.Http
 
 @{
@@ -29,7 +29,9 @@
                     <th>Patient</th>
                     <th>Date</th>
                     <th>Mode</th>
-                    <th>Amount</th>
+                    <th>Total Amount</th>
+                    <th>Paid Amount</th>
+                    <th>Due Amount</th>
                     <th>Price/Visit</th>
                     <th>Visits</th>
                     <th>Balance Visits</th>
@@ -45,6 +47,8 @@
                         <td>@item.Date.ToString().Substring(0, 10)</td>
                         <td>@item.Mode.Name</td>
                         <td>@item.Amount</td>
+                        <td>@item.ReceivedAmount</td>
+                        <td>@(item.Amount - item.ReceivedAmount)</td>
                         <td>@item.AveragePrice</td>
                         <td>@item.Visits</td>
                         <td>@item.VisitBalance</td>

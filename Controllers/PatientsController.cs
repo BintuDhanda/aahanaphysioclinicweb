@@ -41,7 +41,14 @@ namespace AahanaClinic.Controllers
             {
                 ModelState.AddModelError("", TempData["Error"]?.ToString() ?? "");
             }
-            return View(await query.ToListAsync());
+            var patients = await query.ToListAsync();
+            foreach(var item in patients)
+            {
+                var packages = await _context.Packages.Where(g => g.PatientId == item.Id).ToListAsync();
+                item.Amount = packages.Select(s => s.Amount).Sum();
+                item.ReceivedAmount = packages.Select(s => s.ReceivedAmount).Sum();
+            }
+            return View(patients);
         }
 
         // GET: Patients/Details/5
