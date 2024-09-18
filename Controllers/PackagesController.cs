@@ -120,6 +120,7 @@ namespace AahanaClinic.Controllers
                 var user = await _userManager.GetUserAsync(User);
                 var previousUsed = payment.Visits - payment.VisitBalance;
                 payment.Amount = payload.Amount;
+                payment.ReceivedAmount = payload.ReceivedAmount;
                 payment.TransactionId = payload.TransactionId;
                 payment.ModeId = payload.Mode;
                 payment.Visits = payload.Visits;

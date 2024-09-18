@@ -53,6 +53,8 @@
                 <tr>
                     <th>Patient Name</th>
                     <th>Mobile Number</th>
+                    <th>Total Amount</th>
+                    <th>Paid Amount</th>
                     <th>Due Amount</th>
                     <th>Created On</th>
                     <th>Action</th>
@@ -64,6 +66,8 @@
                     <tr>
                         <td>@(item.Name)</td>
                         <td>@(item.MobileNumber)</td>
+                        <td>@(item.Amount)</td>
+                        <td>@(item.ReceivedAmount)</td>
                         <td>@(item.Amount - item.ReceivedAmount)</td>
                         <td>@(item.Timestamp)</td>
                         <td class="table-actions">
