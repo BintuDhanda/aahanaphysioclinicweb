@@ -35,6 +35,8 @@ namespace AahanaClinic.Database
         public DbSet<LabReport> LabReports { get; set; }
         public DbSet<FileStorage> FileStorage { get; set; }
         public DbSet<Settings> Settings { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Seo> Seos { get; set; }
 
     }
 }
