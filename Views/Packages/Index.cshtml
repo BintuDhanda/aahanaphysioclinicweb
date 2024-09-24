@@ -57,13 +57,10 @@
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
                                 <i class="fas fa-info-circle"></i>
                             </a>
-                            @if (item.VisitBalance == item.Visits || (item.Amount - item.ReceivedAmount) != 0)
-                            {
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                            }
-                            @if (item.VisitBalance == item.Visits)
+                             <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
+                                  <i class="fas fa-edit"></i>
+                              </a>
+                             @if (item.VisitBalance == item.Visits)
                             {
                                 <a href="#" class="text-decoration-none delete-btn" data-id="@item.Id">
                                     <i class="fas fa-trash-alt text-danger"></i>
