@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using AahanaClinic.ViewModels;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis;
 
 namespace AahanaClinic.Controllers
 {
@@ -203,13 +204,17 @@ namespace AahanaClinic.Controllers
 
             return Ok("Deleted");
         }
-        public async Task<IActionResult> PatientDetails([FromQuery] string? mobileNo)
+        public IActionResult PatientDetails([FromQuery] string? mobileNo, bool partial)
         {
             try
             {
-                var patient = await _context.Patients.FirstOrDefaultAsync(m => m.MobileNumber == mobileNo && m.IsDeleted == false);
+                var patient = _context.Patients.FirstOrDefault(m => m.MobileNumber == mobileNo && m.IsDeleted == false);
                 if (patient != null)
                 {
+                    if (partial)
+                    {
+                        return PartialView("_Patient", patient);
+                    }
                     var finalResponse = patient.Adapt<PatientViewModel>();
                     return Ok(finalResponse);
                 }
@@ -223,6 +228,10 @@ namespace AahanaClinic.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(500);
             }
+        }
+        public IActionResult Search()
+        {
+            return View();
         }
     }
 }

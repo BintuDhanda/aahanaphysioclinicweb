@@ -1,0 +1,109 @@
+﻿@model EncounterViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Updated styles for smaller font size */
+    .form-container {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin: 0 auto;
+        max-width: 900px; /* Increased max-width for two-column layout */
+        background-color: #f8f9fa;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        font-size: 13px; /* Reduced font size */
+        border-radius: 3px;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 3px;
+    }
+
+    .text-danger {
+        font-size: 12px;
+    }
+
+    /* Adjusted style for search button */
+    .input-group {
+        position: relative;
+    }
+
+    .input-group-append {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .btn-outline-secondary {
+        margin-left: -35px; /* Adjust this value based on your layout */
+    }
+
+    .smiley {
+        font-size: 32px; /* Larger smiley size */
+    }
+</style>
+
+<div class="container" style="margin-top:10px;">
+    <h1 class="textGradient text-center" style="font-size: 24px;">Search Patient</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="form-container">
+                <div class="mb-3">
+                    <label asp-for="PatientId" class="form-label textGradient">Patient Mobile Number</label>
+                    <div class="input-group">
+                        <input type="text" id="patientSearchInput" class="form-control" placeholder="Search Patient...">
+                        <button type="button" id="searchButton" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="mb-3">
+                        <label id="patientDetailsLabel"></label>
+                    </div>
+                    <div id="patient-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+@section Scripts {
+    <script>
+        var packages = []
+        document.getElementById("searchButton").addEventListener("click", function () {
+            var patientSearchInput = document.getElementById("patientSearchInput").value;
+            var patientDetailsLabel = document.getElementById("patientDetailsLabel");
+            patientDetailsLabel.innerText = "Searching for patient...";
+            fetch(`/Patients/PatientDetails?mobileNo=${patientSearchInput}&partial=true`)
+                .then(response => {
+                    if (response.status === 204) {
+                        patientDetailsLabel.innerText = "Patient not found.";
+                        throw new Error("Patient not found");
+                    }
+                    patientDetailsLabel.innerText = "";
+                    return response.text();
+                })
+                .then(data => {
+                    console.log(data)
+                    $('#patient-container').html(data);
+                })
+                .catch(error => {
+                    console.log(error)
+                    // Handle other errors here if needed
+                });
+        });
+    </script>
+}
