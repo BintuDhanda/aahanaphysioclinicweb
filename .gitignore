@@ -2,6 +2,6 @@
 .vs/
 
 # Ignore AahanaClinic/obj folder
-AahanaClinic/obj/
-bin/*
-obj/*
+
+/bin/*
+/obj/*
