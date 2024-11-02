@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/obj/Debug/net6.0/AahanaClinic.AssemblyInfo.cs
+/obj/Debug/net6.0/AahanaClinic.AssemblyInfoInputs.cache
+/Properties/PublishProfiles/FolderProfile.pubxml.user
